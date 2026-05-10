@@ -23,20 +23,32 @@ A single hub page so LinkedIn posts don't need to repeat the same backlog of lin
 - **`external`** — LinkedIn 등 외부 URL로 링크 (기본)
 - **`local`** — 사이트 자체에 호스팅하는 마크다운 글
 
-### 1. LinkedIn 링크 1줄 추가 (external) — 가장 빠른 길
+### 1. LinkedIn 링크 추가 (external) — 가장 빠른 길
 
-```powershell
-.\tools\publish.ps1 "https://www.linkedin.com/posts/..."
-```
+**제일 쉬운 방법: `publish.bat` 더블클릭**
 
-→ 자동으로:
-- `id`, `date`(activity ID 디코딩), 썸네일(og:image 다운로드) 채움
-- 시리즈 패턴 감지해 다음 번호 제목 제안 (예: `9번째 느좋 코딩 포스트모텀(바이브 코딩)`)
+1. 탐색기에서 `D:\byunghwiyu.github.io\publish.bat` 더블클릭
+2. URL 붙여넣고 Enter
+3. 한글/영문 제목은 시리즈 패턴 감지된 기본값을 그대로 Enter로 수락하거나 직접 입력
+4. 끝. 1~2분 뒤 라이브 반영
+
+자동 처리:
+- `id`, `date` (LinkedIn activity ID 디코딩), 썸네일 (og:image 다운로드)
+- 다음 번호 제목 자동 제안 (예: `9번째 느좋 코딩 포스트모텀(바이브 코딩)`)
 - `posts.json` 갱신 + git commit + push
 
-제목까지 인자로 한 번에:
+**터미널을 선호하면:**
+
 ```powershell
+# PowerShell
+.\tools\publish.ps1 "URL"
 .\tools\publish.ps1 "URL" "한글 제목" "English Title"
+
+# CMD / 더블클릭
+publish.bat "URL"
+
+# Python 직접
+python tools\add-post.py "URL" --push
 ```
 
 ### 1-1. 자동 도구 없이 수동 추가하려면
