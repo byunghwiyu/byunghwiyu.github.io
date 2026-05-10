@@ -107,6 +107,21 @@ python -m http.server 8000
 
 ---
 
+## 썸네일 / Thumbnails
+
+LinkedIn 포스트 og:image 자동 추출 가능. 새 LinkedIn 글 추가 후:
+
+```bash
+python tools/fetch-thumbs.py            # 비어있는 thumbnail 만 처리
+python tools/fetch-thumbs.py --force    # 전체 재다운로드
+```
+
+→ `assets/thumbs/{id}.jpg` 다운로드 + `posts.json` 의 `thumbnail` 필드 자동 채움.
+
+local 글의 경우 직접 이미지를 `assets/thumbs/` 에 넣고 posts.json `thumbnail` 필드에 경로 기입.
+
+---
+
 ## 향후 작업 / TODO
 
 - [ ] `assets/og-image.png` 추가 (1200×630, LinkedIn 카드 미리보기용)
