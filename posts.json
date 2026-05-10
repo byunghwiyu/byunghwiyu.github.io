@@ -7,7 +7,7 @@
       "tag": "Postmortem",
       "titleKo": "느좋 코딩 포스트모텀(바이브 코딩) 1",
       "titleEn": "Vibe Coding Postmortem #1",
-      "summary": "AI 네이티브 시대, 기획자에게 진짜 필요한 역량은 무엇인가에 대한 회고.",
+      "summary": "",
       "kind": "external",
       "url": "https://www.linkedin.com/posts/byunghwi_qrysumqzcuqn-gamedesign-rpwstwrzgtgkrht-activity-7456963173565272064-uvy2?utm_source=share&utm_medium=member_desktop&rcm=ACoAABLaWHABANuHavx5S3CtyOnAwv6f5NIw8LM",
       "thumbnail": ""
@@ -87,16 +87,6 @@
       "summary": "",
       "kind": "external",
       "url": "https://www.linkedin.com/posts/byunghwi_qrysumqzcuqn-gamedesign-rpwstwrzgtgkrht-activity-7430558251143839745-awB2?utm_source=share&utm_medium=member_desktop&rcm=ACoAABLaWHABANuHavx5S3CtyOnAwv6f5NIw8LM",
-      "thumbnail": ""
-    },
-    {
-      "id": "sample-local",
-      "date": "2026-05-11",
-      "tag": "Note",
-      "titleKo": "사이트에 직접 쓰는 글 (샘플)",
-      "titleEn": "Writing on This Site (Sample)",
-      "summary": "LinkedIn에 게시되지 않고 byunghwiyu.github.io 안에서만 읽히는 마크다운 글의 예시. 자유롭게 삭제하거나 교체 가능.",
-      "kind": "local",
       "thumbnail": ""
     }
   ]
