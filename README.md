@@ -23,7 +23,23 @@ A single hub page so LinkedIn posts don't need to repeat the same backlog of lin
 - **`external`** — LinkedIn 등 외부 URL로 링크 (기본)
 - **`local`** — 사이트 자체에 호스팅하는 마크다운 글
 
-### 1. LinkedIn 링크 추가 (external)
+### 1. LinkedIn 링크 1줄 추가 (external) — 가장 빠른 길
+
+```powershell
+.\tools\publish.ps1 "https://www.linkedin.com/posts/..."
+```
+
+→ 자동으로:
+- `id`, `date`(activity ID 디코딩), 썸네일(og:image 다운로드) 채움
+- 시리즈 패턴 감지해 다음 번호 제목 제안 (예: `9번째 느좋 코딩 포스트모텀(바이브 코딩)`)
+- `posts.json` 갱신 + git commit + push
+
+제목까지 인자로 한 번에:
+```powershell
+.\tools\publish.ps1 "URL" "한글 제목" "English Title"
+```
+
+### 1-1. 자동 도구 없이 수동 추가하려면
 
 `posts.json` 의 `posts` 배열 최상단에 객체 1개 추가 → 커밋 → 푸시.
 
@@ -31,7 +47,7 @@ A single hub page so LinkedIn posts don't need to repeat the same backlog of lin
 {
   "id": "post-003",
   "date": "2026-06-01",
-  "tag": "Devlog",
+  "tag": "Postmortem",
   "titleKo": "한국어 제목",
   "titleEn": "English Title",
   "summary": "한 줄 요약 / One-line summary.",
@@ -40,6 +56,8 @@ A single hub page so LinkedIn posts don't need to repeat the same backlog of lin
   "thumbnail": ""
 }
 ```
+
+수동 추가 후 썸네일만 자동 채우려면: `python tools/fetch-thumbs.py`
 
 ### 2. 사이트 자체 글 추가 (local)
 
