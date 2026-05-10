@@ -3,13 +3,90 @@
   "posts": [
     {
       "id": "post-001",
-      "date": "2026-05-08",
+      "date": "2026-05-04",
       "tag": "Postmortem",
-      "titleKo": "느좋 바이브코딩 포스트모텀",
-      "titleEn": "Vibe Coding Postmortem",
+      "titleKo": "느좋 코딩 포스트모텀(바이브 코딩) 1",
+      "titleEn": "Vibe Coding Postmortem #1",
       "summary": "AI 네이티브 시대, 기획자에게 진짜 필요한 역량은 무엇인가에 대한 회고.",
       "kind": "external",
       "url": "https://www.linkedin.com/posts/byunghwi_qrysumqzcuqn-gamedesign-rpwstwrzgtgkrht-activity-7456963173565272064-uvy2?utm_source=share&utm_medium=member_desktop&rcm=ACoAABLaWHABANuHavx5S3CtyOnAwv6f5NIw8LM",
+      "thumbnail": ""
+    },
+    {
+      "id": "post-002",
+      "date": "2026-04-26",
+      "tag": "Postmortem",
+      "titleKo": "느좋 코딩 포스트모텀(바이브 코딩) 2",
+      "titleEn": "Vibe Coding Postmortem #2",
+      "summary": "",
+      "kind": "external",
+      "url": "https://www.linkedin.com/posts/byunghwi_qrysumqzcuqn-gamedesign-rpwstwrzgtgkrht-activity-7454291982656516096-ONv3?utm_source=share&utm_medium=member_desktop&rcm=ACoAABLaWHABANuHavx5S3CtyOnAwv6f5NIw8LM",
+      "thumbnail": ""
+    },
+    {
+      "id": "post-003",
+      "date": "2026-04-19",
+      "tag": "Postmortem",
+      "titleKo": "느좋 코딩 포스트모텀(바이브 코딩) 3",
+      "titleEn": "Vibe Coding Postmortem #3",
+      "summary": "",
+      "kind": "external",
+      "url": "https://www.linkedin.com/posts/byunghwi_qrysumqzcuqn-gamedesign-ai-activity-7451751497505095680-ePXY?utm_source=share&utm_medium=member_desktop&rcm=ACoAABLaWHABANuHavx5S3CtyOnAwv6f5NIw8LM",
+      "thumbnail": ""
+    },
+    {
+      "id": "post-004",
+      "date": "2026-04-12",
+      "tag": "Postmortem",
+      "titleKo": "느좋 코딩 포스트모텀(바이브 코딩) 4",
+      "titleEn": "Vibe Coding Postmortem #4",
+      "summary": "",
+      "kind": "external",
+      "url": "https://www.linkedin.com/posts/byunghwi_qrysumqzcuqn-gamedesign-ai-activity-7449214780797530112-9f90?utm_source=share&utm_medium=member_desktop&rcm=ACoAABLaWHABANuHavx5S3CtyOnAwv6f5NIw8LM",
+      "thumbnail": ""
+    },
+    {
+      "id": "post-005",
+      "date": "2026-04-05",
+      "tag": "Postmortem",
+      "titleKo": "느좋 코딩 포스트모텀(바이브 코딩) 5",
+      "titleEn": "Vibe Coding Postmortem #5",
+      "summary": "",
+      "kind": "external",
+      "url": "https://www.linkedin.com/posts/byunghwi_qrysumqzcuqn-gamedesign-rpwstwrzgtgkrht-activity-7446662957335425024-FeAS?utm_source=share&utm_medium=member_desktop&rcm=ACoAABLaWHABANuHavx5S3CtyOnAwv6f5NIw8LM",
+      "thumbnail": ""
+    },
+    {
+      "id": "post-006",
+      "date": "2026-03-31",
+      "tag": "Postmortem",
+      "titleKo": "느좋 코딩 포스트모텀(바이브 코딩) 6",
+      "titleEn": "Vibe Coding Postmortem #6",
+      "summary": "",
+      "kind": "external",
+      "url": "https://www.linkedin.com/posts/byunghwi_qrysumqzcuqn-gamedesign-rpwstwrzgtgkrht-activity-7444742725779845121-qRzG?utm_source=share&utm_medium=member_desktop&rcm=ACoAABLaWHABANuHavx5S3CtyOnAwv6f5NIw8LM",
+      "thumbnail": ""
+    },
+    {
+      "id": "post-007",
+      "date": "2026-03-11",
+      "tag": "Postmortem",
+      "titleKo": "느좋 코딩 포스트모텀(바이브 코딩) 7",
+      "titleEn": "Vibe Coding Postmortem #7",
+      "summary": "",
+      "kind": "external",
+      "url": "https://www.linkedin.com/posts/byunghwi_qrysumqzcuqn-gamedesign-rpwstwrzgtgkrht-activity-7437392994930036736-7Hjo?utm_source=share&utm_medium=member_desktop&rcm=ACoAABLaWHABANuHavx5S3CtyOnAwv6f5NIw8LM",
+      "thumbnail": ""
+    },
+    {
+      "id": "post-008",
+      "date": "2026-02-20",
+      "tag": "Postmortem",
+      "titleKo": "느좋 코딩 포스트모텀(바이브 코딩) 8",
+      "titleEn": "Vibe Coding Postmortem #8",
+      "summary": "",
+      "kind": "external",
+      "url": "https://www.linkedin.com/posts/byunghwi_qrysumqzcuqn-gamedesign-rpwstwrzgtgkrht-activity-7430558251143839745-awB2?utm_source=share&utm_medium=member_desktop&rcm=ACoAABLaWHABANuHavx5S3CtyOnAwv6f5NIw8LM",
       "thumbnail": ""
     },
     {
