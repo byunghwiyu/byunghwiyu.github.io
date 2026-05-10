@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>유병휘 / Byunghwi Yu</title>
+  <meta name="description" content="만든 것에 대해 씁니다. I write about what I make." />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="유병휘 / Byunghwi Yu" />
+  <meta property="og:description" content="만든 것에 대해 씁니다." />
+  <meta property="og:image" content="https://byunghwiyu.github.io/assets/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;500;700&family=Inter:wght@300;400;500;600&family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-deep: #060814;
+      --bg-mid: #0d1024;
+      --bg-card: rgba(20, 24, 48, 0.55);
+      --border-soft: rgba(180, 200, 255, 0.12);
+      --border-glow: rgba(180, 200, 255, 0.35);
+      --text-primary: #f5f6ff;
+      --text-secondary: #b8bdd9;
+      --text-tertiary: #7a8099;
+      --accent-star: #cfd6ff;
+      --accent-glow: #6b78ff;
+      --code-bg: rgba(10, 14, 32, 0.7);
+      --serif: 'Cormorant Garamond', 'Noto Serif KR', serif;
+      --sans: 'Inter', 'Noto Sans KR', system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      background: var(--bg-deep);
+      color: var(--text-primary);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse at 20% 0%, rgba(80, 100, 220, 0.18) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 100%, rgba(120, 80, 200, 0.12) 0%, transparent 55%),
+        linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-mid) 100%);
+      background-attachment: fixed;
+    }
+    .stars {
+      position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;
+    }
+    .stars::before, .stars::after {
+      content: ""; position: absolute; inset: 0;
+      background-image:
+        radial-gradient(1px 1px at 12% 18%, #fff 50%, transparent 100%),
+        radial-gradient(1px 1px at 28% 42%, #cfd6ff 50%, transparent 100%),
+        radial-gradient(1.2px 1.2px at 47% 8%, #fff 50%, transparent 100%),
+        radial-gradient(1px 1px at 63% 71%, #b8bdd9 50%, transparent 100%),
+        radial-gradient(1px 1px at 78% 33%, #fff 50%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 88% 88%, #cfd6ff 50%, transparent 100%),
+        radial-gradient(1px 1px at 35% 92%, #fff 50%, transparent 100%);
+      animation: twinkle 8s ease-in-out infinite alternate;
+    }
+    .stars::after { animation-delay: 4s; opacity: 0.6; transform: translateY(20vh); }
+    @keyframes twinkle { 0% { opacity: 0.55; } 50% { opacity: 1; } 100% { opacity: 0.7; } }
+    @media (prefers-reduced-motion: reduce) { .stars::before, .stars::after { animation: none; } }
+
+    main {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: clamp(40px, 6vw, 64px) clamp(20px, 5vw, 32px);
+    }
+
+    .nav-back {
+      display: inline-block;
+      margin-bottom: clamp(28px, 4vw, 40px);
+      font-size: 13px;
+      color: var(--text-tertiary);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--accent-star); }
+
+    .post-header {
+      padding-bottom: clamp(28px, 4vw, 40px);
+      margin-bottom: clamp(32px, 4vw, 48px);
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .post-meta {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      font-size: 12px;
+      color: var(--text-tertiary);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .post-meta .tag {
+      padding: 3px 10px;
+      border: 1px solid var(--border-soft);
+      border-radius: 999px;
+      font-size: 11px;
+    }
+    h1.post-title-ko {
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: clamp(26px, 4vw, 38px);
+      font-weight: 500;
+      line-height: 1.35;
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+    .post-title-en {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(16px, 2vw, 20px);
+      color: var(--text-secondary);
+      font-weight: 300;
+    }
+
+    /* Markdown body */
+    .post-body {
+      font-family: 'Noto Sans KR', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.85;
+      color: var(--text-primary);
+    }
+    .post-body p { margin: 0 0 1.4em; color: var(--text-primary); }
+    .post-body h2 {
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: clamp(20px, 2.4vw, 24px);
+      font-weight: 500;
+      letter-spacing: -0.005em;
+      margin: 2em 0 0.7em;
+      padding-top: 1.4em;
+      border-top: 1px solid var(--border-soft);
+      color: var(--accent-star);
+    }
+    .post-body h3 {
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: clamp(17px, 2vw, 19px);
+      font-weight: 500;
+      margin: 1.8em 0 0.5em;
+      color: var(--text-primary);
+    }
+    .post-body a { color: var(--accent-star); text-decoration: underline; text-decoration-color: var(--border-glow); text-underline-offset: 3px; }
+    .post-body a:hover { text-decoration-color: var(--accent-star); }
+    .post-body ul, .post-body ol { margin: 0 0 1.4em 1.4em; }
+    .post-body li { margin-bottom: 0.4em; }
+    .post-body blockquote {
+      border-left: 2px solid var(--accent-glow);
+      padding: 4px 0 4px 20px;
+      margin: 1.4em 0;
+      color: var(--text-secondary);
+      font-style: italic;
+    }
+    .post-body code {
+      background: var(--code-bg);
+      border: 1px solid var(--border-soft);
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 0.88em;
+      font-family: ui-monospace, 'JetBrains Mono', monospace;
+      color: var(--accent-star);
+    }
+    .post-body pre {
+      background: var(--code-bg);
+      border: 1px solid var(--border-soft);
+      border-radius: 4px;
+      padding: 18px 20px;
+      overflow-x: auto;
+      margin: 1.4em 0;
+    }
+    .post-body pre code {
+      background: transparent;
+      border: none;
+      padding: 0;
+      color: var(--text-primary);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+    .post-body img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      margin: 1.4em 0;
+    }
+    .post-body hr {
+      border: none;
+      border-top: 1px solid var(--border-soft);
+      margin: 2em 0;
+    }
+    .post-body table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.4em 0;
+      font-size: 14px;
+    }
+    .post-body th, .post-body td {
+      border-bottom: 1px solid var(--border-soft);
+      padding: 10px 12px;
+      text-align: left;
+    }
+    .post-body th { color: var(--text-secondary); font-weight: 500; }
+
+    .loading, .error {
+      text-align: center;
+      padding: 80px 20px;
+      color: var(--text-tertiary);
+      font-style: italic;
+    }
+    .error { color: #ff8b8b; }
+
+    footer {
+      margin-top: clamp(60px, 8vw, 100px);
+      padding: clamp(28px, 4vw, 40px) 0;
+      border-top: 1px solid var(--border-soft);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      font-size: 13px;
+      color: var(--text-tertiary);
+    }
+    footer a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      margin-right: 18px;
+      transition: color 0.3s ease;
+    }
+    footer a:hover { color: var(--accent-star); }
+    footer .copy {
+      font-family: var(--serif);
+      font-style: italic;
+      letter-spacing: 0.04em;
+    }
+  </style>
+</head>
+<body>
+  <div class="stars" aria-hidden="true"></div>
+
+  <main>
+    <a class="nav-back" href="./">← 인덱스로 / Back to index</a>
+
+    <article id="post">
+      <div class="loading">불러오는 중… / Loading…</div>
+    </article>
+
+    <footer>
+      <nav>
+        <a href="https://github.com/byunghwiyu" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/byunghwiyu/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:byunghwiyu@gmail.com">Email</a>
+      </nav>
+      <div class="copy">© 2026 Byunghwi Yu</div>
+    </footer>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+  <script>
+    (async function loadPost() {
+      const root = document.getElementById('post');
+      const params = new URLSearchParams(location.search);
+      const id = params.get('id');
+
+      if (!id) {
+        root.innerHTML = '<div class="error">글 ID가 지정되지 않았습니다. / No post ID specified.</div>';
+        return;
+      }
+
+      try {
+        const meta = await fetch('posts.json', { cache: 'no-store' }).then(r => r.json());
+        const post = (meta.posts || []).find(p => p.id === id);
+        if (!post) {
+          root.innerHTML = '<div class="error">해당 글을 찾을 수 없습니다. / Post not found.</div>';
+          return;
+        }
+
+        const mdRes = await fetch(`posts/${id}.md`, { cache: 'no-store' });
+        if (!mdRes.ok) throw new Error('MD HTTP ' + mdRes.status);
+        const md = await mdRes.text();
+
+        document.title = `${post.titleKo || ''} — 유병휘 / Byunghwi Yu`;
+        // OG 메타 동적 갱신
+        setMeta('og:title', `${post.titleKo} — 유병휘`);
+        setMeta('og:description', post.summary || '');
+        setMeta('description', post.summary || '');
+
+        const html = `
+          <header class="post-header">
+            <div class="post-meta">
+              <span>${escapeHtml(post.date || '')}</span>
+              ${post.tag ? `<span class="tag">${escapeHtml(post.tag)}</span>` : ''}
+            </div>
+            <h1 class="post-title-ko">${escapeHtml(post.titleKo || '')}</h1>
+            ${post.titleEn ? `<div class="post-title-en">${escapeHtml(post.titleEn)}</div>` : ''}
+          </header>
+          <div class="post-body">${marked.parse(md)}</div>
+        `;
+        root.innerHTML = html;
+      } catch (err) {
+        console.error(err);
+        root.innerHTML = '<div class="error">글을 불러오지 못했습니다. / Failed to load post.</div>';
+      }
+    })();
+
+    function setMeta(prop, content) {
+      const sel = prop.startsWith('og:') ? `meta[property="${prop}"]` : `meta[name="${prop}"]`;
+      const el = document.querySelector(sel);
+      if (el) el.setAttribute('content', content);
+    }
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, c => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      }[c]));
+    }
+  </script>
+</body>
+</html>

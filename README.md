@@ -18,9 +18,14 @@ A single hub page so LinkedIn posts don't need to repeat the same backlog of lin
 
 ## 새 포스트 추가하기 / Adding a new post
 
-1. `posts.json` 을 연다
-2. `posts` 배열 최상단에 객체 1개 추가
-3. 커밋 → 푸시 → 끝 (GitHub Pages가 1~2분 내 자동 배포)
+이 사이트는 **두 종류의 글**을 지원합니다:
+
+- **`external`** — LinkedIn 등 외부 URL로 링크 (기본)
+- **`local`** — 사이트 자체에 호스팅하는 마크다운 글
+
+### 1. LinkedIn 링크 추가 (external)
+
+`posts.json` 의 `posts` 배열 최상단에 객체 1개 추가 → 커밋 → 푸시.
 
 ```json
 {
@@ -30,22 +35,52 @@ A single hub page so LinkedIn posts don't need to repeat the same backlog of lin
   "titleKo": "한국어 제목",
   "titleEn": "English Title",
   "summary": "한 줄 요약 / One-line summary.",
+  "kind": "external",
   "url": "https://www.linkedin.com/posts/...",
   "thumbnail": ""
 }
 ```
 
+### 2. 사이트 자체 글 추가 (local)
+
+두 단계:
+
+(a) `posts/{id}.md` 파일 생성 — 마크다운 본문 작성
+(b) `posts.json` 에 항목 추가 (`kind: "local"`, `url` 불필요)
+
+```json
+{
+  "id": "first-essay",
+  "date": "2026-06-01",
+  "tag": "Essay",
+  "titleKo": "긴 호흡의 글 제목",
+  "titleEn": "A Longer Essay",
+  "summary": "한 줄 요약.",
+  "kind": "local"
+}
+```
+
+→ 카드 클릭 시 `post.html?id=first-essay` 로 열림. 글 내용은 `posts/first-essay.md` 에서 자동 로드.
+
 ### 필드 설명 / Fields
 
 | 필드 | 설명 |
 |---|---|
-| `id` | 고유 ID (post-001, post-002…) |
-| `date` | YYYY-MM-DD. 정렬 키. 최신이 위로 노출됨 |
-| `tag` | 한 단어 카테고리 (Postmortem, Devlog, Insight 등) |
+| `id` | 고유 ID. local 글은 파일명과 동일 (`posts/{id}.md`) |
+| `date` | YYYY-MM-DD. 정렬 키 (최신이 위로) |
+| `tag` | 한 단어 카테고리 (Postmortem, Devlog, Essay 등) |
 | `titleKo` / `titleEn` | 카드 제목 한국어/영문 |
-| `summary` | 카드 본문 한 줄 (한영 어느 쪽이든 가능) |
-| `url` | LinkedIn 포스트 URL. `#` 로 시작하면 "준비 중"으로 표시 |
+| `summary` | 카드 본문 한 줄 |
+| `kind` | `"external"` 또는 `"local"`. 미지정 시 url 기준 자동 판단 |
+| `url` | external 글에만 필요. LinkedIn 포스트 URL |
 | `thumbnail` | (선택) 카드별 썸네일. 미사용 시 빈 문자열 |
+
+### 마크다운에서 쓸 수 있는 것
+
+- 헤딩 (`##`, `###`), 굵게/기울임, 인라인 코드, 링크
+- 코드 블록 (펜스 ```)
+- 표 (GFM), 인용 (`>`), 리스트, 이미지
+- 자세한 문법: [marked.js docs](https://marked.js.org/)
 
 ---
 

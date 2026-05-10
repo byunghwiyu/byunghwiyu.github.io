@@ -370,10 +370,21 @@
         }
 
         grid.innerHTML = posts.map(p => {
-          const url = p.url && p.url.startsWith('http') ? p.url : '#';
-          const isPlaceholder = !p.url || !p.url.startsWith('http');
+          // 분기: kind=local → 사이트 자체 글 / 기본(external) → URL로 이동
+          let href, target = '', linkLabel;
+          if (p.kind === 'local') {
+            href = `post.html?id=${encodeURIComponent(p.id)}`;
+            linkLabel = '사이트에서 읽기 / Read on this site';
+          } else if (p.url && p.url.startsWith('http')) {
+            href = p.url;
+            target = 'target="_blank" rel="noopener noreferrer"';
+            linkLabel = 'LinkedIn에서 보기 / Read on LinkedIn';
+          } else {
+            href = '#';
+            linkLabel = '준비 중 / Coming soon';
+          }
           return `
-            <a class="card" href="${url}" ${isPlaceholder ? '' : 'target="_blank" rel="noopener noreferrer"'}>
+            <a class="card" href="${href}" ${target}>
               <div class="card-meta">
                 <span class="date">${escapeHtml(p.date || '')}</span>
                 ${p.tag ? `<span class="tag">${escapeHtml(p.tag)}</span>` : ''}
@@ -381,7 +392,7 @@
               <h3 class="card-title-ko">${escapeHtml(p.titleKo || '')}</h3>
               <div class="card-title-en">${escapeHtml(p.titleEn || '')}</div>
               <p class="card-summary">${escapeHtml(p.summary || '')}</p>
-              <span class="card-link">${isPlaceholder ? '준비 중 / Coming soon' : 'LinkedIn에서 보기 / Read on LinkedIn'}</span>
+              <span class="card-link">${linkLabel}</span>
             </a>
           `;
         }).join('');
