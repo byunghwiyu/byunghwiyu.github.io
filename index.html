@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>유병휘 / Byunghwi Yu — 만든 것에 대해 씁니다.</title>
+  <meta name="description" content="만든 것에 대해 씁니다. I write about what I make. 게임 기획자 · 15년 · 서울 / Game Designer · 15 yrs · Seoul." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="유병휘 / Byunghwi Yu — 만든 것에 대해 씁니다." />
+  <meta property="og:description" content="만든 것에 대해 씁니다. I write about what I make. 게임 기획자 · 15년 · 서울." />
+  <meta property="og:url" content="https://byunghwiyu.github.io/" />
+  <meta property="og:image" content="https://byunghwiyu.github.io/assets/og-image.png" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:locale:alternate" content="en_US" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="유병휘 / Byunghwi Yu — 만든 것에 대해 씁니다." />
+  <meta name="twitter:description" content="I write about what I make. Game Designer · 15 yrs · Seoul." />
+  <meta name="twitter:image" content="https://byunghwiyu.github.io/assets/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;500;700&family=Inter:wght@300;400;500;600&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-deep: #060814;
+      --bg-mid: #0d1024;
+      --bg-card: rgba(20, 24, 48, 0.55);
+      --bg-card-hover: rgba(28, 34, 64, 0.75);
+      --border-soft: rgba(180, 200, 255, 0.12);
+      --border-glow: rgba(180, 200, 255, 0.35);
+      --text-primary: #f5f6ff;
+      --text-secondary: #b8bdd9;
+      --text-tertiary: #7a8099;
+      --accent-star: #cfd6ff;
+      --accent-glow: #6b78ff;
+      --serif: 'Cormorant Garamond', 'Noto Serif KR', serif;
+      --sans: 'Inter', 'Noto Sans KR', system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      background: var(--bg-deep);
+      color: var(--text-primary);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse at 20% 0%, rgba(80, 100, 220, 0.18) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 100%, rgba(120, 80, 200, 0.12) 0%, transparent 55%),
+        linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-mid) 100%);
+      background-attachment: fixed;
+    }
+
+    /* CSS-only 별 파티클 */
+    .stars {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .stars::before, .stars::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(1px 1px at 12% 18%, #fff 50%, transparent 100%),
+        radial-gradient(1px 1px at 28% 42%, #cfd6ff 50%, transparent 100%),
+        radial-gradient(1.2px 1.2px at 47% 8%, #fff 50%, transparent 100%),
+        radial-gradient(1px 1px at 63% 71%, #b8bdd9 50%, transparent 100%),
+        radial-gradient(1px 1px at 78% 33%, #fff 50%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 88% 88%, #cfd6ff 50%, transparent 100%),
+        radial-gradient(1px 1px at 35% 92%, #fff 50%, transparent 100%),
+        radial-gradient(1px 1px at 8% 65%, #b8bdd9 50%, transparent 100%),
+        radial-gradient(1.2px 1.2px at 55% 55%, #fff 50%, transparent 100%);
+      background-size: 100% 100%;
+      animation: twinkle 8s ease-in-out infinite alternate;
+    }
+    .stars::after {
+      animation-delay: 4s;
+      opacity: 0.6;
+      transform: translateY(20vh);
+    }
+    @keyframes twinkle {
+      0%   { opacity: 0.55; }
+      50%  { opacity: 1; }
+      100% { opacity: 0.7; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .stars::before, .stars::after { animation: none; }
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: clamp(48px, 8vw, 96px) clamp(24px, 5vw, 64px);
+    }
+
+    /* ========== Hero ========== */
+    .hero {
+      padding: clamp(60px, 10vw, 140px) 0 clamp(48px, 8vw, 100px);
+      text-align: center;
+    }
+    .wordmark {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: clamp(28px, 4vw, 44px);
+      letter-spacing: 0.45em;
+      color: var(--accent-star);
+      text-transform: uppercase;
+      margin-bottom: clamp(40px, 6vw, 72px);
+      opacity: 0.92;
+    }
+    .hero-copy-ko {
+      font-family: 'Noto Sans KR', sans-serif;
+      font-weight: 300;
+      font-size: clamp(28px, 5vw, 56px);
+      line-height: 1.35;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+    .hero-copy-en {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(20px, 3.2vw, 32px);
+      color: var(--text-secondary);
+      margin-bottom: clamp(36px, 5vw, 56px);
+      letter-spacing: 0.01em;
+    }
+    .hero-sub-ko {
+      font-size: clamp(14px, 1.6vw, 16px);
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+    }
+    .hero-sub-en {
+      font-size: clamp(13px, 1.4vw, 14px);
+      color: var(--text-tertiary);
+      font-style: italic;
+    }
+
+    /* ========== Section Title ========== */
+    .section-title {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin: clamp(48px, 8vw, 80px) 0 clamp(28px, 4vw, 40px);
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-soft);
+    }
+    .section-title-ko {
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: clamp(20px, 2.4vw, 24px);
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+    .section-title-en {
+      font-family: var(--serif);
+      font-size: clamp(14px, 1.6vw, 16px);
+      font-style: italic;
+      color: var(--text-tertiary);
+      letter-spacing: 0.04em;
+    }
+
+    /* ========== Posts Grid ========== */
+    .posts {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: clamp(20px, 2.5vw, 28px);
+    }
+    .card {
+      display: flex;
+      flex-direction: column;
+      padding: clamp(24px, 3vw, 32px);
+      background: var(--bg-card);
+      border: 1px solid var(--border-soft);
+      border-radius: 4px;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.35s ease, border-color 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 50% 50%, rgba(107, 120, 255, 0.15) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      pointer-events: none;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-glow);
+      background: var(--bg-card-hover);
+      box-shadow: 0 12px 40px rgba(107, 120, 255, 0.18);
+    }
+    .card:hover::before { opacity: 1; }
+
+    .card-meta {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      font-size: 12px;
+      color: var(--text-tertiary);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .card-meta .tag {
+      padding: 3px 10px;
+      border: 1px solid var(--border-soft);
+      border-radius: 999px;
+      font-size: 11px;
+    }
+    .card-title-ko {
+      font-family: 'Noto Sans KR', sans-serif;
+      font-size: clamp(18px, 2vw, 22px);
+      font-weight: 500;
+      line-height: 1.4;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+    .card-title-en {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(14px, 1.5vw, 16px);
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+      font-weight: 300;
+    }
+    .card-summary {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      flex-grow: 1;
+      margin-bottom: 24px;
+    }
+    .card-link {
+      font-size: 13px;
+      color: var(--accent-star);
+      letter-spacing: 0.05em;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .card-link::after {
+      content: "↗";
+      transition: transform 0.3s ease;
+    }
+    .card:hover .card-link::after {
+      transform: translate(2px, -2px);
+    }
+
+    /* ========== Empty State ========== */
+    .empty {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--text-tertiary);
+      font-style: italic;
+    }
+
+    /* ========== Footer ========== */
+    footer {
+      margin-top: clamp(80px, 12vw, 140px);
+      padding: clamp(32px, 4vw, 48px) 0;
+      border-top: 1px solid var(--border-soft);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      font-size: 13px;
+      color: var(--text-tertiary);
+    }
+    footer a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      margin-right: 20px;
+      transition: color 0.3s ease;
+    }
+    footer a:hover { color: var(--accent-star); }
+    footer .copy {
+      font-family: var(--serif);
+      font-style: italic;
+      letter-spacing: 0.04em;
+    }
+
+    @media (max-width: 600px) {
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      footer nav { display: flex; flex-wrap: wrap; gap: 12px; }
+      footer nav a { margin-right: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="stars" aria-hidden="true"></div>
+
+  <main>
+    <!-- ========== Hero ========== -->
+    <section class="hero">
+      <div class="wordmark">유병휘</div>
+      <h1 class="hero-copy-ko">만든 것에 대해 씁니다.</h1>
+      <p class="hero-copy-en">I write about what I make.</p>
+      <p class="hero-sub-ko">게임 기획자 · 15년 · 서울</p>
+      <p class="hero-sub-en">Game Designer · 15 yrs · Seoul</p>
+    </section>
+
+    <!-- ========== Posts ========== -->
+    <section>
+      <header class="section-title">
+        <h2 class="section-title-ko">글</h2>
+        <span class="section-title-en">Writings</span>
+      </header>
+      <div class="posts" id="posts">
+        <div class="empty" id="empty-state">불러오는 중… / Loading…</div>
+      </div>
+    </section>
+
+    <!-- ========== Footer ========== -->
+    <footer>
+      <nav>
+        <a href="https://github.com/byunghwiyu" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/byunghwiyu/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:byunghwiyu@gmail.com">Email</a>
+      </nav>
+      <div class="copy">© 2026 Byunghwi Yu</div>
+    </footer>
+  </main>
+
+  <script>
+    // posts.json 로드 → 카드 렌더
+    (async function loadPosts() {
+      const grid = document.getElementById('posts');
+      const empty = document.getElementById('empty-state');
+
+      try {
+        const res = await fetch('posts.json', { cache: 'no-store' });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const data = await res.json();
+        const posts = (data.posts || []).slice().sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+
+        if (posts.length === 0) {
+          empty.textContent = '아직 등록된 글이 없습니다. / No posts yet.';
+          return;
+        }
+
+        grid.innerHTML = posts.map(p => {
+          const url = p.url && p.url.startsWith('http') ? p.url : '#';
+          const isPlaceholder = !p.url || !p.url.startsWith('http');
+          return `
+            <a class="card" href="${url}" ${isPlaceholder ? '' : 'target="_blank" rel="noopener noreferrer"'}>
+              <div class="card-meta">
+                <span class="date">${escapeHtml(p.date || '')}</span>
+                ${p.tag ? `<span class="tag">${escapeHtml(p.tag)}</span>` : ''}
+              </div>
+              <h3 class="card-title-ko">${escapeHtml(p.titleKo || '')}</h3>
+              <div class="card-title-en">${escapeHtml(p.titleEn || '')}</div>
+              <p class="card-summary">${escapeHtml(p.summary || '')}</p>
+              <span class="card-link">${isPlaceholder ? '준비 중 / Coming soon' : 'LinkedIn에서 보기 / Read on LinkedIn'}</span>
+            </a>
+          `;
+        }).join('');
+      } catch (err) {
+        empty.textContent = '글 목록을 불러오지 못했습니다. / Failed to load posts.';
+        console.error(err);
+      }
+    })();
+
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, c => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+      }[c]));
+    }
+  </script>
+</body>
+</html>

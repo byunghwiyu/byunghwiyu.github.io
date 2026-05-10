@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1a1f3a"/>
+      <stop offset="100%" stop-color="#060814"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#cfd6ff" stop-opacity="0.9"/>
+      <stop offset="60%" stop-color="#6b78ff" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#6b78ff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="64" height="64" rx="12" fill="url(#bg)"/>
+  <circle cx="32" cy="32" r="22" fill="url(#glow)"/>
+  <!-- 4-point star -->
+  <path d="M32 12 L34.5 29.5 L52 32 L34.5 34.5 L32 52 L29.5 34.5 L12 32 L29.5 29.5 Z"
+        fill="#f5f6ff" opacity="0.95"/>
+  <!-- 작은 별 2개 -->
+  <circle cx="48" cy="18" r="1.2" fill="#cfd6ff"/>
+  <circle cx="16" cy="46" r="1" fill="#b8bdd9"/>
+</svg>
