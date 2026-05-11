@@ -404,7 +404,15 @@
           } else if (p.url && p.url.startsWith('http')) {
             href = p.url;
             target = 'target="_blank" rel="noopener noreferrer"';
-            linkLabel = 'LinkedIn에서 보기 / Read on LinkedIn';
+            // URL 종류에 따른 라벨 분기
+            const u = p.url.toLowerCase();
+            if (u.includes('linkedin.com')) {
+              linkLabel = 'LinkedIn에서 보기 / Read on LinkedIn';
+            } else if (u.includes('github.com') && !u.includes('.github.io')) {
+              linkLabel = 'GitHub에서 보기 / View on GitHub';
+            } else {
+              linkLabel = '열기 / Open';
+            }
           } else {
             href = '#';
             linkLabel = '준비 중 / Coming soon';

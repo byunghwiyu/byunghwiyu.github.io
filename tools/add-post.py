@@ -194,8 +194,9 @@ def main(argv: list[str]) -> int:
         return 1
 
     activity_id = extract_activity_id(url)
-    if activity_id is None:
-        print("X URL에서 activity-... 부분을 찾지 못했습니다")
+    is_linkedin = "linkedin.com" in url.lower()
+    if is_linkedin and activity_id is None:
+        print("X LinkedIn URL인데 activity-... 부분을 찾지 못했습니다")
         return 1
 
     with JSON_PATH.open("r", encoding="utf-8") as f:
@@ -208,8 +209,19 @@ def main(argv: list[str]) -> int:
         return 0
 
     pid = next_id(posts)
-    date = decode_date(activity_id)
-    ko_default, en_default = suggest_series_titles(posts)
+    if activity_id is not None:
+        date = decode_date(activity_id)
+    else:
+        # 비-LinkedIn URL: 오늘 날짜 사용
+        from datetime import date as _date
+        date = _date.today().isoformat()
+    # 시리즈 제목 자동 제안은 LinkedIn 포스트에만 적용
+    if is_linkedin:
+        ko_default, en_default = suggest_series_titles(posts)
+    else:
+        ko_default, en_default = "", ""
+    # 비-LinkedIn URL은 기본 태그를 "Project"로
+    default_tag = "Postmortem" if is_linkedin else "Project"
 
     title_ko = title_ko_arg if title_ko_arg is not None else ask("한글 제목", ko_default)
     if not title_ko:
@@ -230,7 +242,7 @@ def main(argv: list[str]) -> int:
     new_entry = {
         "id": pid,
         "date": date,
-        "tag": "Postmortem",
+        "tag": default_tag,
         "titleKo": title_ko,
         "titleEn": title_en or "",
         "summary": "",
