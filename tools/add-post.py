@@ -72,7 +72,7 @@ def detect_ext(img_url: str) -> str:
 
 # ---------- LinkedIn URL parsing ----------
 
-ACTIVITY_RE = re.compile(r"activity-(\d+)")
+ACTIVITY_RE = re.compile(r"(?:activity|ugcPost)-(\d+)")
 
 
 def extract_activity_id(url: str) -> int | None:
