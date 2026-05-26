@@ -2,6 +2,17 @@
   "$schema": "schema: { posts: [{ id, date(YYYY-MM-DD), tag, titleKo, titleEn, summary, kind: 'external'|'local', url?, thumbnail? }] }",
   "posts": [
     {
+      "id": "post-011",
+      "date": "2026-05-25",
+      "tag": "Postmortem",
+      "titleKo": "11번째 느좋 코딩 포스트모텀(바이브 코딩)",
+      "titleEn": "Vibe Coding Postmortem #11",
+      "summary": "",
+      "kind": "external",
+      "url": "https://www.linkedin.com/posts/byunghwi_11%EB%B2%88%EC%A7%B8-%EB%8A%90%EC%A2%8B-%EC%BD%94%EB%94%A9-%ED%8F%AC%EC%8A%A4%ED%8A%B8%EB%AA%A8%ED%85%80%EB%B0%94%EC%9D%B4%EB%B8%8C-%EC%BD%94%EB%94%A9-1-%ED%94%8C%EB%A0%88%EC%9D%B4-x4-%ED%94%8C%EB%A0%88%EC%9D%B4-ugcPost-7464571840921886720-GWNg/?utm_source=share&utm_medium=member_desktop&rcm=ACoAABLaWHABANuHavx5S3CtyOnAwv6f5NIw8LM",
+      "thumbnail": "assets/thumbs/post-011.jpg"
+    },
+    {
       "id": "post-010",
       "date": "2026-05-17",
       "tag": "Postmortem",
