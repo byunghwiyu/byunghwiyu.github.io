@@ -2,6 +2,17 @@
   "$schema": "schema: { posts: [{ id, date(YYYY-MM-DD), tag, titleKo, titleEn, summary, kind: 'external'|'local', url?, thumbnail? }] }",
   "posts": [
     {
+      "id": "twin-pet-season",
+      "date": "2026-06-02",
+      "tag": "Game Design",
+      "titleKo": "리나 vs 루나 테마 배틀: 냥냥 vs 멍멍 대소동",
+      "titleEn": "Rina vs Luna Theme Battle: Cats vs Dogs",
+      "summary": "쌍둥이 NPC 리나와 루나가 고양이파와 강아지파로 장난스럽게 대립하는 30일 외전 시즌 기획서.",
+      "kind": "external",
+      "url": "https://byunghwiyu.github.io/content/twin-pet-season/",
+      "thumbnail": "content/twin-pet-season/assets/generated/whiteboard-summary.png"
+    },
+    {
       "id": "post-011",
       "date": "2026-05-25",
       "tag": "Postmortem",
