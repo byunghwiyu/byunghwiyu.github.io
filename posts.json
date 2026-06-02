@@ -2,6 +2,17 @@
   "$schema": "schema: { posts: [{ id, date(YYYY-MM-DD), tag, titleKo, titleEn, summary, kind: 'external'|'local', url?, thumbnail? }] }",
   "posts": [
     {
+      "id": "post-012",
+      "date": "2026-06-02",
+      "tag": "Postmortem",
+      "titleKo": "12번째 느좋 코딩 포스트모텀(바이브 코딩)",
+      "titleEn": "Vibe Coding Postmortem #12",
+      "summary": "",
+      "kind": "external",
+      "url": "https://www.linkedin.com/posts/byunghwi_qrysumqzcuqn-gamedesign-rpwstwrzgtgkrht-ugcPost-7467726043941031938-IFgf/?utm_source=share&utm_medium=member_desktop&rcm=ACoAABLaWHABANuHavx5S3CtyOnAwv6f5NIw8LM",
+      "thumbnail": "assets/thumbs/post-012.jpg"
+    },
+    {
       "id": "twin-pet-season",
       "date": "2026-06-03",
       "tag": "ContentDesign",
