@@ -1,0 +1,1683 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>리나 vs 루나 테마 배틀: 냥냥 vs 멍멍 대소동</title>
+  <style>
+    :root {
+      --ink: #1f2633;
+      --sub: #647084;
+      --paper: #fff9ef;
+      --panel: #ffffff;
+      --line: #e4d8c5;
+      --cat: #3f7f78;
+      --cat-2: #e3f4f0;
+      --dog: #c95742;
+      --dog-2: #fff0e8;
+      --gold: #d8a541;
+      --navy: #222b3d;
+      --green: #4d9b78;
+      --purple: #6b62a8;
+      --shadow: 0 18px 48px rgba(39, 31, 20, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fff3e3 0%, #fffaf2 42%, #f4fbf8 100%);
+      font-family: "Pretendard", "Noto Sans KR", "Malgun Gothic", Arial, sans-serif;
+      line-height: 1.58;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    .page {
+      width: min(1200px, calc(100vw - 40px));
+      margin: 0 auto;
+      padding: 30px 0 70px;
+    }
+
+    .hero {
+      display: grid;
+      gap: 22px;
+      align-content: start;
+    }
+
+    .title-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 20px;
+      align-items: end;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 5px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.78);
+      color: #4e596b;
+      font-size: 13px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    h1, h2, h3, p { margin: 0; }
+
+    h1 {
+      max-width: 920px;
+      font-size: clamp(44px, 6vw, 78px);
+      line-height: 1.02;
+      letter-spacing: 0;
+      word-break: keep-all;
+    }
+
+    .hero-kicker {
+      margin-bottom: 8px;
+      color: var(--dog);
+      font-size: 20px;
+      font-weight: 900;
+    }
+
+    .lead {
+      max-width: 780px;
+      margin-top: 18px;
+      color: #3f4958;
+      font-size: 20px;
+      word-break: keep-all;
+    }
+
+    .hero-meta {
+      min-width: 250px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .hero-meta strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+
+    .hero-meta span {
+      color: var(--sub);
+      font-size: 14px;
+    }
+
+    .whiteboard {
+      overflow: hidden;
+      border: 1px solid rgba(31, 38, 51, 0.14);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .notice {
+      margin-top: 10px;
+      color: var(--sub);
+      font-size: 13px;
+    }
+
+    section {
+      padding: 44px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 26px;
+      align-items: start;
+      margin-bottom: 20px;
+    }
+
+    .kicker {
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-size: clamp(28px, 4vw, 48px);
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    .section-note {
+      max-width: 780px;
+      margin-top: 8px;
+      color: var(--sub);
+      font-size: 16px;
+      word-break: keep-all;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(360px, 480px);
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .text-panel,
+    .card,
+    .side,
+    .flow-node,
+    .state,
+    .mission,
+    .timeline-card,
+    .wire-panel,
+    .risk {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+    }
+
+    .text-panel { padding: 22px; }
+
+    .text-panel p + p { margin-top: 14px; }
+
+    .key-art {
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      background: #f3eadc;
+    }
+
+    .key-art img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .flow-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 10px;
+      align-items: stretch;
+    }
+
+    .flow-node {
+      position: relative;
+      min-height: 118px;
+      padding: 14px;
+    }
+
+    .flow-node::after {
+      content: "→";
+      position: absolute;
+      right: -12px;
+      top: 46%;
+      color: var(--sub);
+      font-weight: 900;
+    }
+
+    .flow-node:nth-child(6)::after,
+    .flow-node:last-child::after {
+      content: "";
+    }
+
+    .flow-node.loop {
+      border-color: rgba(77, 155, 120, 0.5);
+      background: #f1fbf7;
+    }
+
+    .flow-node.branch {
+      border-color: rgba(216, 165, 65, 0.55);
+      background: #fff8e7;
+    }
+
+    .num {
+      display: inline-grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      margin-bottom: 10px;
+      border-radius: 50%;
+      background: var(--navy);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .flow-node strong,
+    .card strong,
+    .state strong,
+    .mission strong,
+    .timeline-card strong,
+    .wire-panel strong,
+    .risk strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 17px;
+    }
+
+    .flow-node span,
+    .card span,
+    .state span,
+    .mission span,
+    .timeline-card span,
+    .wire-panel span,
+    .risk span {
+      color: var(--sub);
+      font-size: 14px;
+    }
+
+    .compare {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .side { overflow: hidden; }
+
+    .side-title {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 16px 18px;
+      color: #fff;
+      font-weight: 900;
+    }
+
+    .cat-side .side-title { background: var(--cat); }
+    .dog-side .side-title { background: var(--dog); }
+
+    .rows { display: grid; }
+
+    .row {
+      display: grid;
+      grid-template-columns: 120px minmax(0, 1fr);
+      gap: 12px;
+      padding: 13px 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .row b { font-size: 14px; }
+    .row span { color: var(--sub); font-size: 14px; word-break: keep-all; }
+
+    .loop-layout {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 18px;
+    }
+
+    .loop-ring {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.68);
+    }
+
+    .card {
+      min-height: 122px;
+      padding: 16px;
+    }
+
+    .card.cat { background: linear-gradient(180deg, var(--cat-2), #fff); }
+    .card.dog { background: linear-gradient(180deg, var(--dog-2), #fff); }
+
+    .missions {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .mission {
+      min-height: 154px;
+      padding: 16px;
+    }
+
+    .mission.cat { background: var(--cat-2); }
+    .mission.dog { background: var(--dog-2); }
+
+    .state-map {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    .state {
+      position: relative;
+      min-height: 132px;
+      padding: 16px;
+    }
+
+    .state::after {
+      content: "↔";
+      position: absolute;
+      right: -13px;
+      top: 42%;
+      color: var(--sub);
+      font-weight: 900;
+    }
+
+    .state:last-child::after { content: ""; }
+
+    .state.hot {
+      background: #fff5df;
+      border-color: rgba(216, 165, 65, 0.65);
+    }
+
+    .gauge {
+      display: grid;
+      grid-template-columns: 48% 7% 45%;
+      align-items: center;
+      height: 48px;
+      margin: 18px 0 0;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .catbar, .dogbar {
+      display: grid;
+      place-items: center;
+      height: 100%;
+      color: #fff;
+      font-weight: 900;
+    }
+
+    .catbar { background: var(--cat); }
+    .dogbar { background: var(--dog); }
+    .midbar { color: var(--sub); text-align: center; font-weight: 900; }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .timeline-card {
+      min-height: 148px;
+      padding: 16px;
+    }
+
+    .timeline-card em {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--green);
+      font-style: normal;
+      font-weight: 900;
+    }
+
+    .reward {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .ladder {
+      display: grid;
+      gap: 8px;
+    }
+
+    .tier {
+      min-height: 58px;
+      display: grid;
+      place-items: center;
+      padding: 12px;
+      border-radius: 8px;
+      color: #fff;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .tier:nth-child(1) { width: 48%; margin: 0 auto; background: var(--navy); }
+    .tier:nth-child(2) { width: 66%; margin: 0 auto; background: var(--gold); }
+    .tier:nth-child(3) { width: 84%; margin: 0 auto; background: var(--green); }
+    .tier:nth-child(4) { width: 100%; background: #778393; }
+
+    .reward-flow {
+      display: grid;
+      gap: 10px;
+    }
+
+    .reward-flow .card {
+      min-height: 76px;
+    }
+
+    .wire {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr) 260px;
+      gap: 14px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .wire-panel {
+      min-height: 250px;
+      padding: 14px;
+      background: #fffaf2;
+    }
+
+    .choice {
+      min-height: 76px;
+      margin-top: 10px;
+      padding: 12px;
+      border-radius: 8px;
+      color: #fff;
+      font-weight: 900;
+    }
+
+    .choice.cat { background: var(--cat); }
+    .choice.dog { background: var(--dog); }
+
+    .line-list {
+      display: grid;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .line {
+      min-height: 30px;
+      padding: 7px 9px;
+      border-radius: 6px;
+      background: #fff;
+      color: #5d6878;
+      font-size: 13px;
+    }
+
+    .risk-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .risk {
+      min-height: 132px;
+      padding: 14px;
+      background: #fff;
+    }
+
+    .dialogue-grid,
+    .stage-grid,
+    .slot-grid,
+    .trust-grid,
+    .reward-action-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .dialogue-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .bubble {
+      position: relative;
+      min-height: 122px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .bubble::after {
+      content: "";
+      position: absolute;
+      left: 24px;
+      bottom: -10px;
+      width: 18px;
+      height: 18px;
+      transform: rotate(45deg);
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .bubble.cat { background: var(--cat-2); }
+    .bubble.cat::after { background: var(--cat-2); }
+    .bubble.dog { background: var(--dog-2); }
+    .bubble.dog::after { background: var(--dog-2); }
+
+    .bubble b,
+    .stage b,
+    .slot b,
+    .trust b,
+    .reward-action b {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+
+    .bubble span,
+    .stage span,
+    .slot span,
+    .trust span,
+    .reward-action span {
+      color: var(--sub);
+      font-size: 14px;
+    }
+
+    .stage,
+    .slot,
+    .trust,
+    .reward-action {
+      min-height: 130px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .stage em,
+    .trust em,
+    .reward-action em {
+      display: inline-block;
+      margin-bottom: 8px;
+      color: var(--green);
+      font-style: normal;
+      font-weight: 900;
+      font-size: 13px;
+    }
+
+    .path-grid,
+    .reward-grid,
+    .signal-grid,
+    .risk-card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .path-card,
+    .reward-card,
+    .signal-card,
+    .risk-card {
+      min-height: 170px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .path-card strong,
+    .reward-card strong,
+    .signal-card strong,
+    .risk-card strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+
+    .path-card em,
+    .reward-card em,
+    .signal-card em,
+    .risk-card em {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #f1fbf6;
+      color: var(--green);
+      font-style: normal;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .path-card span,
+    .reward-card span,
+    .signal-card span,
+    .risk-card span {
+      display: block;
+      color: var(--sub);
+      font-size: 14px;
+    }
+
+    .path-card span + span,
+    .reward-card span + span,
+    .signal-card span + span,
+    .risk-card span + span {
+      margin-top: 6px;
+    }
+
+    .design-matrix,
+    .motivation-matrix,
+    .risk-map {
+      display: grid;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .design-row {
+      display: grid;
+      grid-template-columns: 160px repeat(6, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .motivation-row {
+      display: grid;
+      grid-template-columns: 170px repeat(6, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .design-row > div,
+    .motivation-row > div {
+      min-height: 56px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .design-row.header > div,
+    .motivation-row.header > div,
+    .axis-label {
+      background: var(--navy) !important;
+      color: #fff;
+      font-weight: 900;
+    }
+
+    .cell-main { background: #fff3d7 !important; color: #6d4614; }
+    .cell-sub { background: #e8f5ef !important; color: #336653; }
+    .cell-situational { background: #eef1f7 !important; color: #506074; }
+    .cell-weak { background: #f7f4ef !important; color: #8a806f; }
+
+    .risk-map {
+      grid-template-columns: 120px repeat(3, minmax(0, 1fr));
+    }
+
+    .risk-map > div {
+      min-height: 78px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .risk-high { background: #ffe8dc !important; color: #7d3f28; }
+    .risk-mid { background: #fff6dc !important; color: #7b5a1d; }
+    .risk-low { background: #edf6ef !important; color: #36684e; }
+
+    .mission-table,
+    .device-board,
+    .comparison-table,
+    .score-matrix,
+    .scenario-table {
+      display: grid;
+      gap: 8px;
+    }
+
+    .mission-row,
+    .device-row,
+    .comparison-row,
+    .score-row,
+    .scenario-row {
+      display: grid;
+      grid-template-columns: 150px minmax(0, 1fr) minmax(0, 1fr);
+      gap: 10px;
+      align-items: stretch;
+    }
+
+    .comparison-row {
+      grid-template-columns: 150px minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+    }
+
+    .score-row {
+      grid-template-columns: 150px minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+    }
+
+    .scenario-row {
+      grid-template-columns: 130px repeat(5, minmax(0, 1fr));
+    }
+
+    .mission-row > div,
+    .device-row > div,
+    .comparison-row > div,
+    .score-row > div,
+    .scenario-row > div {
+      min-height: 54px;
+      padding: 11px 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      font-size: 14px;
+    }
+
+    .mission-row.header > div,
+    .device-row.header > div,
+    .comparison-row.header > div,
+    .score-row.header > div,
+    .scenario-row.header > div {
+      min-height: 38px;
+      background: var(--navy);
+      color: #fff;
+      font-weight: 900;
+    }
+
+    .mission-row .cat-cell,
+    .device-row .cat-cell {
+      background: var(--cat-2);
+    }
+
+    .mission-row .dog-cell,
+    .device-row .dog-cell {
+      background: var(--dog-2);
+    }
+
+    .intent-lock {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 16px;
+      padding: 14px;
+      border: 1px solid rgba(77, 155, 120, 0.34);
+      border-radius: 8px;
+      background: #f1fbf6;
+    }
+
+    .intent-lock strong {
+      font-size: 15px;
+    }
+
+    .intent-lock ul {
+      margin: 0;
+      padding-left: 18px;
+      color: #3f5361;
+      font-size: 14px;
+    }
+
+    .heatmap {
+      display: grid;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .heatmap-row {
+      display: grid;
+      grid-template-columns: 170px repeat(5, minmax(0, 1fr));
+      gap: 8px;
+      align-items: stretch;
+    }
+
+    .heatmap-row > div {
+      min-height: 52px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .heatmap-row.header > div {
+      min-height: 36px;
+      background: var(--navy);
+      color: #fff;
+    }
+
+    .heat-0 { background: #f3f1ea !important; color: #788292; }
+    .heat-1 { background: #e7f5ed !important; color: #3f725c; }
+    .heat-2 { background: #caead7 !important; color: #275e45; }
+    .heat-3 { background: #ffd9b8 !important; color: #8b4427; }
+    .heat-4 { background: #f2a65f !important; color: #5a2f15; }
+
+    .heatmap-note {
+      margin-top: 10px;
+      color: var(--sub);
+      font-size: 14px;
+    }
+
+    .copy-board {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .copy-line {
+      min-height: 96px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff8e7;
+      color: #4b5362;
+      font-size: 14px;
+    }
+
+    .toc {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 10px 24px rgba(39, 31, 20, 0.08);
+      backdrop-filter: blur(10px);
+    }
+
+    .toc h2 {
+      flex: 0 0 auto;
+      font-size: 16px;
+      white-space: nowrap;
+    }
+
+    .toc-list {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      scrollbar-width: thin;
+    }
+
+    .toc-list a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 6px 10px;
+      border: 1px solid rgba(31, 38, 51, 0.1);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 800;
+      text-decoration: none;
+      word-break: keep-all;
+      white-space: nowrap;
+    }
+
+    .source-card,
+    .mermaid-card,
+    .ascii-card {
+      padding: 18px;
+      border: 1px solid rgba(31, 38, 51, 0.1);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.86);
+    }
+
+    .source-card h3,
+    .mermaid-card h3,
+    .ascii-card h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+
+    .mermaid {
+      display: flex;
+      justify-content: center;
+      overflow-x: auto;
+      padding: 12px;
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .ascii-card pre {
+      overflow-x: auto;
+      margin: 0;
+      padding: 16px;
+      border-radius: 8px;
+      background: #172033;
+      color: #f7fbff;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .footer-note {
+      color: var(--sub);
+      font-size: 13px;
+      padding-top: 18px;
+    }
+
+    @media (max-width: 1020px) {
+      .title-row,
+      .section-head,
+      .two-col,
+      .loop-layout,
+      .reward,
+      .wire {
+        grid-template-columns: 1fr;
+      }
+
+      .flow-grid,
+      .missions,
+      .state-map,
+      .timeline,
+      .risk-grid,
+      .path-grid,
+      .reward-grid,
+      .signal-grid,
+      .risk-card-grid,
+      .dialogue-grid,
+      .stage-grid,
+      .slot-grid,
+      .trust-grid,
+      .reward-action-grid,
+      .copy-board,
+      .toc-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .flow-node::after,
+      .state::after {
+        display: none;
+      }
+    }
+
+    @media (max-width: 660px) {
+      .page { width: min(100vw - 24px, 1200px); }
+      .compare,
+      .flow-grid,
+      .missions,
+      .state-map,
+      .timeline,
+      .risk-grid,
+      .path-grid,
+      .reward-grid,
+      .signal-grid,
+      .risk-card-grid,
+      .dialogue-grid,
+      .stage-grid,
+      .slot-grid,
+      .trust-grid,
+      .reward-action-grid,
+      .copy-board,
+      .toc-list,
+      .loop-ring {
+        grid-template-columns: 1fr;
+      }
+      .mission-row,
+      .device-row,
+      .comparison-row,
+      .score-row,
+      .design-row,
+      .motivation-row,
+      .risk-map,
+      .heatmap-row,
+      .scenario-row {
+        grid-template-columns: 1fr;
+      }
+      .row { grid-template-columns: 1fr; }
+      .tier { width: 100% !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div class="title-row">
+        <div>
+          <div class="tags">
+            <span class="tag">외전 시즌</span>
+            <span class="tag">수집형 턴제 RPG</span>
+            <span class="tag">쌍둥이 NPC 내기</span>
+            <span class="tag">고양이 vs 개</span>
+          </div>
+          <div class="hero-kicker">리나 vs 루나 테마 배틀</div>
+          <h1>냥냥 vs 멍멍 대소동</h1>
+          <p class="lead">쌍둥이 NPC 리나와 루나가 시즌마다 하나의 외전 주제를 두고 장난스럽게 겨루는 진영 이벤트.</p>
+        </div>
+        <aside class="hero-meta">
+          <strong>공유본 기준</strong>
+          <span>원본 기획서의 섹션, 도식, 표, 대사, UI 문구, 리스크를 보존하며 시각화한 기획서.</span>
+        </aside>
+      </div>
+      <figure class="whiteboard">
+        <img src="assets/generated/whiteboard-summary.png" alt="냥냥 vs 멍멍 대소동 화이트보드 요약 이미지" />
+      </figure>
+      <p class="notice">위 이미지는 기획 검토용 요약 이미지이며, 최종 게임 리소스나 실제 UI 화면이 아니다.</p>
+    </header>
+
+    <nav class="toc" aria-label="문서 목차">
+      <h2>목차</h2>
+      <ul class="toc-list">
+        <li><a href="#intent">1. 기획의도</a></li>
+        <li><a href="#experience">2. 핵심 경험</a></li>
+        <li><a href="#characters">3. 캐릭터 컨셉</a></li>
+        <li><a href="#prompts">4. 캐릭터 이미지 프롬프트</a></li>
+        <li><a href="#loop">5. 시즌 핵심 루프</a></li>
+        <li><a href="#missions">6. 미션 타입</a></li>
+        <li><a href="#season-content">7. 시즌 전용 콘텐츠</a></li>
+        <li><a href="#score">8. 진영 점수 상태</a></li>
+        <li><a href="#timeline">9. 시즌 타임라인</a></li>
+        <li><a href="#rewards">10. 보상 구조</a></li>
+        <li><a href="#scenario">11. 유저 플레이 시나리오</a></li>
+        <li><a href="#ui">12. 내기판 UI 와이어프레임</a></li>
+        <li><a href="#risks">13. 남은 리스크와 결정</a></li>
+      </ul>
+    </nav>
+
+    <section id="intent">
+      <div class="section-head">
+        <div class="kicker">섹션 1</div>
+        <div>
+          <h2>1. 기획의도</h2>
+          <p class="section-note">쌍둥이 NPC 리나와 루나가 매 시즌 다른 주제로 벌이는 가벼운 테마 배틀이다.</p>
+        </div>
+      </div>
+      <div class="two-col">
+        <div class="text-panel">
+          <div class="intent-lock">
+            <strong>사용자 확정 기준</strong>
+            <ul>
+              <li>쌍둥이 NPC 리나와 루나가 유저들을 걸고 장난스럽게 경쟁하는 외전 시즌 콘텐츠다.</li>
+              <li>시즌마다 주제가 달라지고, 이번 시즌 주제는 고양이 vs 개다.</li>
+              <li>모든 유저는 고양이파 또는 강아지파 중 하나를 선택한다.</li>
+              <li>기존 게임 플레이와 시즌 미션을 수행해 자기 진영의 점수를 올린다.</li>
+              <li>30일 오픈, 10일 정산 잠금 구조를 기본으로 한다.</li>
+            </ul>
+          </div>
+          <p>이 시즌은 본편의 갈등을 키우는 메인 서사가 아니라, 리나와 루나가 매 시즌 다른 주제로 벌이는 가벼운 테마 배틀이다.</p>
+          <p>유저는 강아지파와 고양이파 중 하나를 고르고, 평소 하던 플레이를 시즌 점수와 보상 회수로 연결한다.</p>
+          <p>목표는 승패 하나로 유저를 갈라놓는 것이 아니라, 30일 동안 선택한 진영의 취향, 대사, 보상, 외전 수집품이 계정에 남게 하는 것이다.</p>
+        </div>
+        <figure class="key-art">
+          <img src="assets/generated/rina-luna-pet-costume-pair.png" alt="강아지 코스튬 리나와 고양이 코스튬 루나" />
+        </figure>
+      </div>
+      <div class="mermaid-card" style="margin-top:16px;">
+        <h3>기획의도 도식: 시즌 주제 공개에서 다음 시즌 예고까지</h3>
+        <pre class="mermaid">flowchart LR
+    A["시즌 주제 공개<br/>고양이 vs 개"] --> B["리나/루나 해석 비교"]
+    B --> C["진영 선택<br/>강아지파 / 고양이파"]
+    C --> D["테마 미션 수행"]
+    D --> E["개인 기여도 획득"]
+    E --> F["진영 점수 반영"]
+    F --> G["점수 상태 변화<br/>박빙 / 우세 / 열세 / 과열"]
+    G --> H["쌍둥이 반응 대사"]
+    H --> I["보상 회수"]
+    I --> D
+    G --> J["시즌 정산"]
+    J --> K["앨범 / 칭호 / 다음 시즌 예고"]</pre>
+      </div>
+      <div class="flow-grid" style="margin-top:16px;">
+        <div class="flow-node"><span class="num">1</span><strong>시즌 주제 공개</strong><span>고양이 vs 개 테마와 코스튬 실루엣 공개.</span></div>
+        <div class="flow-node"><span class="num">2</span><strong>리나/루나 해석 비교</strong><span>리나는 강아지파, 루나는 고양이파의 매력을 제시.</span></div>
+        <div class="flow-node"><span class="num">3</span><strong>진영 선택</strong><span>강아지파 또는 고양이파를 선택.</span></div>
+        <div class="flow-node"><span class="num">4</span><strong>테마 미션 수행</strong><span>선택한 편의 행동 감각을 미션으로 반복.</span></div>
+        <div class="flow-node"><span class="num">5</span><strong>진영 점수 반영</strong><span>박빙, 우세, 열세, 과열 상태가 갱신.</span></div>
+        <div class="flow-node loop"><span class="num">6</span><strong>보상 회수와 재진입</strong><span>대사와 보상을 받고 다시 미션으로 순환.</span></div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="section-head">
+        <div class="kicker">섹션 2</div>
+        <div>
+          <h2>2. 핵심 경험</h2>
+          <p class="section-note">이번 시즌 나는 어느 취향의 편에 섰는가를 고르고, 그 선택이 점수판과 보상에 계속 반영되는 경험이다.</p>
+        </div>
+      </div>
+      <div class="source-card">
+        <p>핵심 경험은 이번 시즌 나는 어느 취향의 편에 섰는가를 고르고, 기존 플레이를 하면서 그 선택이 점수판, 쌍둥이 대사, 보상, 앨범에 계속 반영되는 것이다.</p>
+        <p>강아지파는 애교 많고 충성심 강한 동료가 바로 달려오는 즐거움을 응원한다. 고양이파는 쉽게 잡히지 않지만 어느 순간 먼저 다가오는 츤데레식 매력과, 독립적인 존재에게 선택받는 기분을 응원한다.</p>
+        <p>두 진영은 성능 차이가 아니라 취향 차이로 갈린다. 미션 효율과 성장 보상은 안정적으로 두고, 진영별 대사, 수집품, 프로필 표현, 하이라이트 연출에서 차이를 만든다.</p>
+      </div>
+      <div class="compare" style="margin-top:16px;">
+        <article class="side dog-side">
+          <div class="side-title"><span>강아지파 / 리나</span><span>함께 뛰는 느낌</span></div>
+          <div class="rows">
+            <div class="row"><b>애정 방식</b><span>부르면 바로 달려오는 애정, 곁을 지키는 충성심</span></div>
+            <div class="row"><b>핵심 감각</b><span>함께 뛰는 느낌, 반겨주는 기분</span></div>
+            <div class="row"><b>대표 행동</b><span>꼬리 흔들기, 산책, 공 물어오기, 칭찬받기, 주인 기다리기</span></div>
+            <div class="row"><b>미션 성격</b><span>많이 참여할수록 반응이 커지는 응원형 태스크</span></div>
+            <div class="row"><b>점수 획득</b><span>일일/주간 퀘스트 연동, 몬스터 처치, 던전 클리어, 협동 기여</span></div>
+            <div class="row"><b>보상 톤</b><span>산책 배지, 공놀이 토큰, 충성 리본, 꼬리 이펙트</span></div>
+          </div>
+        </article>
+        <article class="side cat-side">
+          <div class="side-title"><span>고양이파 / 루나</span><span>선택받는 느낌</span></div>
+          <div class="rows">
+            <div class="row"><b>애정 방식</b><span>모른 척하다가 슬쩍 다가오는 애정, 선택받는 거리감</span></div>
+            <div class="row"><b>핵심 감각</b><span>선택받는 느낌, 츤데레의 작은 신호를 알아차리는 재미</span></div>
+            <div class="row"><b>대표 행동</b><span>식빵 자세, 꾹꾹이, 골골송, 박스 집착, 느린 눈인사, 갑작스러운 우다다</span></div>
+            <div class="row"><b>미션 성격</b><span>조용히 쌓이다가 보너스가 드러나는 관찰형 태스크</span></div>
+            <div class="row"><b>점수 획득</b><span>재화 수집, 아이템 제작, 기부, 누적 달성, 숨은 보너스</span></div>
+            <div class="row"><b>보상 톤</b><span>박스 왕좌, 낮잠 쿠션, 골골송 카드, 발자국 스티커</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="characters">
+      <div class="section-head">
+        <div class="kicker">섹션 3</div>
+        <div>
+          <h2>3. 캐릭터 컨셉</h2>
+          <p class="section-note">리나와 루나는 메인 서사의 적대자가 아니라, 유저를 각자 자기 편으로 끌어들이는 외전 진행자다.</p>
+        </div>
+      </div>
+      <div class="compare">
+        <article class="side dog-side">
+          <div class="side-title"><span>리나: 강아지파</span><span>밝고 즉각적인 응원</span></div>
+          <div class="rows">
+            <div class="row"><b>핵심 문장</b><span>강아지파는 애교 많고 충성심이 강한 동료가 곁에서 바로 반응해주는 즐거움을 응원하는 진영이다.</span></div>
+            <div class="row"><b>대표 매력</b><span>꼬리 흔들기, 산책 가자고 조르기, 공 물어오기, 문 앞에서 기다리기, 이름 부르면 바로 달려오기, 칭찬받고 신나기.</span></div>
+            <div class="row"><b>대사 톤</b><span>밝고 즉각적이며 유저를 계속 앞으로 밀어준다.</span></div>
+          </div>
+        </article>
+        <article class="side cat-side">
+          <div class="side-title"><span>루나: 고양이파</span><span>조용하고 여유 있는 승부욕</span></div>
+          <div class="rows">
+            <div class="row"><b>핵심 문장</b><span>고양이파는 쉽게 잡히지 않지만 어느 순간 먼저 다가오는 츤데레 같은 매력, 독립적인 존재에게 선택받는 기분을 즐기는 진영이다.</span></div>
+            <div class="row"><b>대표 매력</b><span>꾹꾹이, 골골송, 식빵 자세, 햇빛 낮잠, 박스 집착, 눈 천천히 깜빡임, 부르면 안 오고 안 부르면 옴, 갑자기 우다다.</span></div>
+            <div class="row"><b>대사 톤</b><span>조용하고 여유 있지만, 은근히 승부욕이 있다.</span></div>
+          </div>
+        </article>
+      </div>
+      <div class="dialogue-grid" style="margin-top:14px;">
+        <div class="bubble dog"><b>리나</b><span>"강아지파 집합! 오늘도 신나게 뛰자!"</span></div>
+        <div class="bubble dog"><b>리나</b><span>"봐봐, 이름 부르자마자 달려오잖아. 이게 진짜 애정이지!"</span></div>
+        <div class="bubble dog"><b>리나</b><span>"밀린다고? 그럼 더 크게 뛰면 돼!"</span></div>
+        <div class="bubble cat"><b>루나</b><span>"부르면 안 오는 게 아니야. 올 타이밍을 고르는 거지."</span></div>
+        <div class="bubble cat"><b>루나</b><span>"눈 천천히 감아봐. 그게 고양이식 약속이야."</span></div>
+        <div class="bubble cat"><b>루나</b><span>"작은 발자국을 따라가면, 생각보다 큰 마음이 나와."</span></div>
+      </div>
+    </section>
+
+    <section id="prompts">
+      <div class="section-head">
+        <div class="kicker">섹션 4</div>
+        <div>
+          <h2>4. 캐릭터 이미지 프롬프트</h2>
+          <p class="section-note">생성 이미지는 시즌 대표 키비주얼, 캐릭터 비교 카드, 프리뷰/공유본 상단 비주얼로 쓴다.</p>
+        </div>
+      </div>
+      <div class="two-col">
+        <figure class="key-art">
+          <img src="assets/generated/rina-luna-pet-costume-pair.png" alt="리나와 루나 페어 일러스트" />
+        </figure>
+        <div class="source-card">
+          <h3>생성 이미지</h3>
+          <p><b>파일:</b> assets/generated/rina-luna-pet-costume-pair.png</p>
+          <p><b>용도:</b> 시즌 대표 키비주얼, 캐릭터 비교 카드, 프리뷰/공유본 상단 비주얼</p>
+          <p><b>주의:</b> 기획 검토용 참고 이미지이며 최종 게임 리소스가 아니다.</p>
+        </div>
+      </div>
+      <div class="slot-grid" style="margin-top:16px;">
+        <div class="slot"><b>공통 스타일</b><span>Twin sisters in a polished cel-anime key visual style, modern Japanese animation look, clean lineart, soft but vivid colors.</span></div>
+        <div class="slot"><b>리나 / 강아지파 코스튬</b><span>Warm red, cream, and golden accents, puppy ears, fluffy tail accessory, paw-print gloves, sporty cape, fetch ball.</span></div>
+        <div class="slot"><b>루나 / 고양이파 코스튬</b><span>Mint, navy, silver, and soft black accents, cat ears, ribbon-like tail accessory, paw cuffs, moon collar charm.</span></div>
+        <div class="slot"><b>페어 일러스트</b><span>쌍둥이 공통 얼굴 구조와 키, 조율된 실루엣을 유지하되 리나는 energetic, 루나는 calm and clever.</span></div>
+      </div>
+    </section>
+
+    <section id="loop">
+      <div class="section-head">
+        <div class="kicker">섹션 5</div>
+        <div>
+          <h2>5. 시즌 핵심 루프</h2>
+          <p class="section-note">접속 후 30초 안에 오늘 할 일과 점수판 변화, 보상 회수가 한 호흡으로 보여야 한다.</p>
+        </div>
+      </div>
+      <div class="mermaid-card">
+        <h3>시즌 핵심 루프 원본 도식</h3>
+        <pre class="mermaid">flowchart TD
+    A["시즌 진입"] --> B["고양이파 / 강아지파 선택"]
+    B --> C["오늘의 냥멍 미션 확인"]
+    C --> D["테마 미션 수행"]
+    D --> E["개인 기여도 획득"]
+    E --> F["진영 점수 반영"]
+    F --> G{"현재 점수 상태"}
+    G --> H["박빙: 응원 미션"]
+    G --> I["우세: 수성 미션"]
+    G --> J["열세: 추격 미션"]
+    H --> K["쌍둥이 반응 대사"]
+    I --> K
+    J --> K
+    K --> L["개인/진영 보상 회수"]
+    L --> C</pre>
+      </div>
+      <div class="loop-layout" style="margin-top:16px;">
+        <div class="loop-ring">
+          <div class="card"><strong>1. 상태 확인</strong><span>현재 점수 상태와 오늘의 냥멍 미션 확인.</span></div>
+          <div class="card"><strong>2. 테마 미션 수행</strong><span>고양이파/강아지파 행동 감각에 맞는 미션 수행.</span></div>
+          <div class="card"><strong>3. 점수 상태 분기</strong><span>박빙, 우세, 열세에 따라 응원/수성/추격 미션으로 이동.</span></div>
+          <div class="card"><strong>4. 대사와 보상 회수</strong><span>쌍둥이 반응 대사와 개인/진영 보상을 받고 다시 미션으로 재진입.</span></div>
+        </div>
+        <div class="stage-grid">
+          <div class="stage"><em>첫 참여</em><b>시즌 주제, 리나/루나 코스튬, 강아지파/고양이파의 매력 차이</b><span>어느 편이 내 취향인지 고르고 첫 진영 보상을 받는다.</span></div>
+          <div class="stage"><em>반복 정착</em><b>기존 일일/주간 퀘스트를 하면서 같이 채워지는 진영 태스크</b><span>원래 하던 플레이가 진영 점수와 대사 변화로 이어지는지 확인한다.</span></div>
+          <div class="stage"><em>누적 회수</em><b>개인 기여도, 진영 기여도, 앨범 조각, 보상 단계</b><span>시즌 수집품과 외전 보상을 끝까지 회수한다.</span></div>
+          <div class="stage"><em>마지막 주 하이라이트</em><b>추격/수성 미션, 점수 획득량 부스팅, 최종 대사 변화</b><span>마지막 판세를 흔들거나 내 진영의 결과를 지킨다.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="missions">
+      <div class="section-head">
+        <div class="kicker">섹션 6</div>
+        <div>
+          <h2>6. 미션 타입</h2>
+          <p class="section-note">미션 태스크명은 명확하게 유지하고, 테마 감성은 완료 연출, 리나/루나 대사, 보상 이름, UI 스킨에 입힌다.</p>
+        </div>
+      </div>
+      <div class="mission-table">
+        <div class="mission-row header"><div>구분</div><div>완료 조건</div><div>테마 표현</div></div>
+        <div class="mission-row"><div>일일/주간 퀘스트</div><div>기존 일일/주간 퀘스트 완료</div><div>완료 후 리나/루나 응원 대사</div></div>
+        <div class="mission-row"><div>몬스터 처치</div><div>지정 수량 몬스터 처치</div><div>결과 화면에 발자국/산책 스탬프</div></div>
+        <div class="mission-row"><div>던전 클리어</div><div>지정 던전 또는 난이도 클리어</div><div>쌍둥이가 던전 결과를 두고 짧게 말다툼</div></div>
+        <div class="mission-row"><div>재화 수집</div><div>골드, 성장 재료, 이벤트 재화 획득</div><div>진영별 수집 게이지에 자동 반영</div></div>
+        <div class="mission-row"><div>아이템 제작</div><div>장비, 소모품, 이벤트 아이템 제작</div><div>제작 완료 시 테마 스티커 획득</div></div>
+        <div class="mission-row"><div>재화 기부</div><div>기존 보유 재화 또는 이벤트 재화 기부</div><div>진영 응원판이 꾸며짐</div></div>
+        <div class="mission-row"><div>협동 기여</div><div>길드/친구/진영 공동 목표 기여</div><div>진영 전체 보상 게이지 상승</div></div>
+        <div class="mission-row"><div>추격 미션</div><div>열세 진영 전용 추가 목표 완료</div><div>열세 진영 전용 응원 대사</div></div>
+        <div class="mission-row"><div>수성 미션</div><div>우세 진영 전용 유지 목표 완료</div><div>우세 진영 방심 방지 대사</div></div>
+      </div>
+      <h3 style="margin-top:18px;">점수 획득 경로 그리드</h3>
+      <p class="section-note">점수 획득 경로는 어떤 플레이를 하는 유저가, 어떤 행동으로, 무엇을 회수해서, 왜 다시 들어오는지를 함께 보여줘야 한다.</p>
+      <div class="path-grid" style="margin-top:14px;">
+        <div class="path-card"><em>대부분의 유저</em><strong>기본 참여 경로</strong><span>기존 일일/주간 퀘스트 완료</span><span>안정적인 기본 점수와 오늘 접속분을 놓치지 않았다는 안도감</span></div>
+        <div class="path-card"><em>전투/던전 선호</em><strong>전투 경로</strong><span>몬스터 처치, 던전 클리어</span><span>평소 전투가 진영 판세에 반영되는 느낌</span></div>
+        <div class="path-card"><em>성장/제작 선호</em><strong>파밍 경로</strong><span>재화 수집, 아이템 제작, 이벤트 재화 획득</span><span>모은 재료가 시즌 보상으로 전환되는 만족감</span></div>
+        <div class="path-card"><em>재화 보유량 높음</em><strong>기부 경로</strong><span>기존 보유 재화 또는 이벤트 재화 기부</span><span>쌓인 재화를 쓰며 진영 응원판을 키우는 재미</span></div>
+        <div class="path-card"><em>커뮤니티 참여</em><strong>협동 경로</strong><span>길드/친구/진영 공동 목표 기여</span><span>나 혼자가 아니라 진영 전체가 움직인다는 감각</span></div>
+        <div class="path-card"><em>판세 반응</em><strong>추격/수성 경로</strong><span>추격 미션, 수성 미션, 하이라이트 스테이지</span><span>따라잡을 수 있다는 이유와 앞선 상태를 지켜야 한다는 긴장감</span></div>
+      </div>
+      <h3 style="margin-top:18px;">점수 경로 x 플레이 성향 매트릭스</h3>
+      <p class="section-note">범례: 주력은 가장 자연스러운 경로, 보조는 함께 진행되는 경로, 상황은 판세나 기간에 따라 열리는 경로다.</p>
+      <div class="design-matrix">
+        <div class="design-row header"><div>플레이 성향</div><div>기본 참여</div><div>전투</div><div>파밍/제작</div><div>기부</div><div>협동</div><div>추격/수성</div></div>
+        <div class="design-row"><div class="axis-label">일상 접속형</div><div class="cell-main">주력</div><div class="cell-sub">보조</div><div class="cell-sub">보조</div><div class="cell-sub">보조</div><div class="cell-situational">상황</div><div class="cell-situational">상황</div></div>
+        <div class="design-row"><div class="axis-label">전투 집중형</div><div class="cell-sub">보조</div><div class="cell-main">주력</div><div class="cell-sub">보조</div><div class="cell-situational">상황</div><div class="cell-situational">상황</div><div class="cell-situational">상황</div></div>
+        <div class="design-row"><div class="axis-label">성장/제작형</div><div class="cell-sub">보조</div><div class="cell-sub">보조</div><div class="cell-main">주력</div><div class="cell-sub">보조</div><div class="cell-situational">상황</div><div class="cell-situational">상황</div></div>
+        <div class="design-row"><div class="axis-label">재화 축적형</div><div class="cell-sub">보조</div><div class="cell-situational">상황</div><div class="cell-sub">보조</div><div class="cell-main">주력</div><div class="cell-situational">상황</div><div class="cell-situational">상황</div></div>
+        <div class="design-row"><div class="axis-label">커뮤니티형</div><div class="cell-sub">보조</div><div class="cell-situational">상황</div><div class="cell-situational">상황</div><div class="cell-sub">보조</div><div class="cell-main">주력</div><div class="cell-situational">상황</div></div>
+        <div class="design-row"><div class="axis-label">막판 복귀형</div><div class="cell-situational">상황</div><div class="cell-sub">보조</div><div class="cell-sub">보조</div><div class="cell-sub">보조</div><div class="cell-situational">상황</div><div class="cell-main">주력</div></div>
+      </div>
+      <h3 style="margin-top:18px;">점수 경로별 UI 신호</h3>
+      <div class="signal-grid" style="margin-top:14px;">
+        <div class="signal-card"><em>기본 참여</em><strong>오늘의 참여 스탬프</strong><span>개인 기여도 게이지 상승</span><span>"오늘도 네 편에 한 발짝 더!"</span></div>
+        <div class="signal-card"><em>전투</em><strong>전투 기여 배지</strong><span>진영 점수 소폭 상승</span><span>리나는 뛰어들었다, 루나는 흔적을 남겼다고 반응</span></div>
+        <div class="signal-card"><em>파밍/제작</em><strong>재료 전환 표시</strong><span>누적 기여 칸 채움</span><span>모은 것의 의미를 짚어주는 대사</span></div>
+        <div class="signal-card"><em>기부</em><strong>응원판 장식 추가</strong><span>공동 목표 게이지 상승</span><span>진영 전체가 반응하는 대사</span></div>
+        <div class="signal-card"><em>협동</em><strong>함께 달성한 유저 수</strong><span>협동 목표 단계 상승</span><span>우리 편이 모였다는 감각</span></div>
+        <div class="signal-card"><em>추격/수성</em><strong>상태 배지와 추가 반영 문구</strong><span>추격/수성 카드 강조</span><span>조작이 아니라 장난스러운 응원으로 포장</span></div>
+      </div>
+      <div class="mermaid-card" style="margin-top:16px;">
+        <h3>점수 획득 인과관계도</h3>
+        <pre class="mermaid">flowchart LR
+    A["기존 플레이<br/>일일/주간, 전투, 파밍, 제작"] --> B["시즌 태스크 자동 반영"]
+    C["재화 기부"] --> B
+    D["협동 기여"] --> B
+    B --> E["개인 기여도"]
+    B --> F["진영 점수"]
+    E --> G["개인 보상 단계"]
+    F --> H{"진영 상태"}
+    H --> I["박빙<br/>응원 미션"]
+    H --> J["열세<br/>추격 미션"]
+    H --> K["우세<br/>수성 미션"]
+    I --> L["쌍둥이 대사 변화"]
+    J --> L
+    K --> L
+    G --> M["보상 회수"]
+    L --> M
+    M --> N["다음 접속 이유"]
+    N --> A</pre>
+      </div>
+    </section>
+
+    <section id="season-content">
+      <div class="section-head">
+        <div class="kicker">섹션 7</div>
+        <div>
+          <h2>7. 시즌 전용 콘텐츠</h2>
+          <p class="section-note">기존 플레이 연동 미션만으로는 시즌의 기억에 남는 장면이 약하다. 매 시즌 테마에 맞게 달라지되, 매번 완전히 새로운 시스템을 만들지는 않는다.</p>
+        </div>
+      </div>
+      <div class="source-card">
+        <p>기존 전투/던전/미션 구조 위에 테마 몬스터, 배경, 결과 연출, NPC 대사, 보상 스킨을 입히는 방식으로 운영한다. 기존 몬스터를 테마에 맞게 바리에이션하는 것을 기본으로 하고, 제작 여유가 있거나 시즌의 대표성이 강할 때는 신규 몬스터나 신규 배경을 제작한다.</p>
+      </div>
+      <h3 style="margin-top:18px;">제작 방식 기준</h3>
+      <div class="comparison-table" style="margin-top:12px;">
+        <div class="comparison-row header"><div>제작 방식</div><div>설명</div><div>사용 기준</div><div>시즌 적용 방향</div></div>
+        <div class="comparison-row"><div>기존 몬스터 바리에이션</div><div>기존 몬스터의 색, 이름, 이펙트, 결과 연출 변경</div><div>대부분의 일반 시즌</div><div>냥멍 테마 발자국/산책/박스 연출</div></div>
+        <div class="comparison-row"><div>기존 던전 재스킨</div><div>규칙은 유지하고 배경, 문구, 보상 연출 변경</div><div>빠르게 시즌 체감을 만들 때</div><div>짧은 이벤트 던전으로 구성</div></div>
+        <div class="comparison-row"><div>전용 오브젝트 추가</div><div>수집품, 응원판, 점수판, 결과 스탬프 추가</div><div>테마를 화면에 더 강하게 보여줄 때</div><div>냥멍 앨범과 응원판</div></div>
+        <div class="comparison-row"><div>신규 몬스터 제작</div><div>시즌 대표 몬스터나 보스 후보 제작</div><div>중요 시즌 또는 아트 리소스 여유가 있을 때</div><div>후속 확장 후보</div></div>
+        <div class="comparison-row"><div>신규 전용 스테이지</div><div>짧은 전용 전투나 이벤트 장면 구성</div><div>하이라이트 주간, 기념 시즌, 복각 차별화</div><div>쌍둥이의 마지막 내기판</div></div>
+      </div>
+      <div class="mission-table">
+        <div class="mission-row header"><div>항목</div><div>냥멍 시즌 던전</div><div>목적</div></div>
+        <div class="mission-row"><div>입장 방식</div><div>매일 1회 기본 입장, 주간 추가 입장권 3개</div><div>짧고 부담 없는 시즌 체감</div></div>
+        <div class="mission-row"><div>플레이 형태</div><div>기존 전투 규칙을 쓰고 몬스터 바리에이션과 결과 연출을 시즌 테마로 변경</div><div>새 시스템 부담 없이 전용 장면 제공</div></div>
+        <div class="mission-row"><div>등장 요소</div><div>리나/루나가 시작, 중간, 결과 화면에서 응원</div><div>쌍둥이 내기 톤 강화</div></div>
+        <div class="mission-row"><div>보상</div><div>개인 참여 보상, 던전 클리어 점수, 대사 카드, 한정 스티커</div><div>반복 참여와 수집 동기</div></div>
+      </div>
+      <div class="stage-grid" style="margin-top:14px;">
+        <div class="stage"><em>Day 24~30</em><b>쌍둥이의 마지막 내기판</b><span>하루 1회 짧게 플레이하는 하이라이트 주간 전용 스테이지.</span></div>
+        <div class="stage"><em>점수 규칙</em><b>양 진영 기본 획득량 상승</b><span>열세 진영에는 추가 추격 배율을 적용한다.</span></div>
+        <div class="stage"><em>보상 방향</em><b>성장 격차보다 시즌 기억</b><span>대사 카드, 프로필 연출, 스티커 중심으로 지급한다.</span></div>
+        <div class="stage"><em>연출</em><b>리나와 루나의 말다툼</b><span>결과 화면에서 내 편과 상대 편의 반응을 모두 보여준다.</span></div>
+      </div>
+      <div class="mermaid-card" style="margin-top:16px;">
+        <h3>시즌 콘텐츠 모듈 맵</h3>
+        <pre class="mermaid">flowchart TB
+    A["기존 플레이 연동<br/>일일/주간, 전투, 파밍, 제작"] --> E["개인 기여도"]
+    B["냥멍 시즌 던전<br/>하루 1회 짧은 이벤트 전투"] --> E
+    C["재화 기부와 협동 목표<br/>보유 재화 소모 / 진영 공동 목표"] --> F["진영 점수"]
+    D["하이라이트 전용 스테이지<br/>Day 24~30"] --> F
+    E --> G["개인 보상<br/>토큰, 앨범 조각, 대사 카드"]
+    F --> H["진영 상태<br/>박빙, 열세, 우세, 과열"]
+    H --> I["추격/수성 미션"]
+    I --> G
+    G --> J["시즌 기억<br/>프로필, 말풍선, 앨범, 다음 시즌 예고"]</pre>
+      </div>
+    </section>
+
+    <section id="score">
+      <div class="section-head">
+        <div class="kicker">섹션 8</div>
+        <div>
+          <h2>8. 진영 점수 상태</h2>
+          <p class="section-note">추격 보너스는 운영자가 결과를 조작하는 장치처럼 보이면 안 된다. 점수 보정이 아니라 테마 미션으로 보인다.</p>
+        </div>
+      </div>
+      <div class="mermaid-card">
+        <h3>진영 점수 상태 원본 도식</h3>
+        <pre class="mermaid">stateDiagram-v2
+    [*] --> 박빙
+    박빙 --> 고양이파_우세
+    박빙 --> 강아지파_우세
+    고양이파_우세 --> 강아지파_열세
+    강아지파_우세 --> 고양이파_열세
+    고양이파_열세 --> 박빙: 비밀 발자국 추적
+    강아지파_열세 --> 박빙: 역전 산책 랠리
+    고양이파_우세 --> 과열
+    강아지파_우세 --> 과열
+    과열 --> 박빙: 피로 완화 미션
+    박빙 --> 하이라이트_주간: Day 24
+    고양이파_우세 --> 하이라이트_주간: Day 24
+    강아지파_우세 --> 하이라이트_주간: Day 24
+    하이라이트_주간 --> 정산_대기: 시즌 종료
+    정산_대기 --> [*]</pre>
+      </div>
+      <div class="gauge" aria-label="진영 점수 예시" style="margin-top:16px;">
+        <div class="catbar">고양이파 48%</div>
+        <div class="midbar">vs</div>
+        <div class="dogbar">강아지파 52%</div>
+      </div>
+      <div class="device-board" style="margin-top:14px;">
+        <div class="device-row header"><div>상태</div><div>고양이파 장치</div><div>강아지파 장치</div></div>
+        <div class="device-row"><div>열세</div><div class="cat-cell">비밀 발자국 추적</div><div class="dog-cell">역전 산책 랠리</div></div>
+        <div class="device-row"><div>박빙</div><div class="cat-cell">눈인사 집중 시간</div><div class="dog-cell">꼬리 붕붕 응원전</div></div>
+        <div class="device-row"><div>우세</div><div class="cat-cell">낮잠 자리 지키기</div><div class="dog-cell">놀이터 퍼레이드</div></div>
+        <div class="device-row"><div>과열</div><div class="cat-cell">느긋한 골골 보너스</div><div class="dog-cell">쉬어가기 간식 타임</div></div>
+        <div class="device-row"><div>하이라이트 주간</div><div class="cat-cell">숨은 발자국 대집결</div><div class="dog-cell">마지막 산책 페스티벌</div></div>
+      </div>
+      <div class="trust-grid" style="margin-top:14px;">
+        <div class="trust"><em>상태 공개</em><b>박빙/우세/열세/과열 상태를 점수 차 구간으로 공개</b><span>점수 게이지 아래 상태 배지.</span></div>
+        <div class="trust"><em>사전 예고</em><b>열세가 커지면 어떤 추격 미션이 열리는지 미리 설명</b><span>시즌 도움말과 미션 카드.</span></div>
+        <div class="trust"><em>추격 배율</em><b>열세 구간이 커질수록 진영 점수 획득량을 단계적으로 증가</b><span>추격 응원 보너스로 표기.</span></div>
+        <div class="trust"><em>보상 상한</em><b>추격 미션은 박빙 복귀를 돕되 개인 보상을 과도하게 뒤집지 않음</b><span>개인 보상 단계는 유지.</span></div>
+        <div class="trust"><em>양쪽 대응</em><b>우세 진영에도 수성 미션을 열어 방심하지 않게 함</b><span>추격/수성 카드 동시 노출.</span></div>
+        <div class="trust"><em>테마 포장</em><b>고양이파는 비밀 발자국, 강아지파는 역전 산책</b><span>리나/루나 대사와 미션명.</span></div>
+      </div>
+      <h3 style="margin-top:18px;">점수 격차별 행동 유도 매트릭스</h3>
+      <div class="score-matrix" style="margin-top:12px;">
+        <div class="score-row header"><div>점수 격차 상태</div><div>UI 노출</div><div>열세 진영 장치</div><div>우세 진영 장치</div><div>보상 안전장치</div></div>
+        <div class="score-row"><div class="axis-label">박빙</div><div>중앙 점수 게이지와 실시간 대사 변화</div><div class="cell-sub">응원 미션</div><div class="cell-sub">응원 미션</div><div>개인 보상 단계 유지</div></div>
+        <div class="score-row"><div class="axis-label">가벼운 열세</div><div>"아직 따라잡을 수 있음" 상태 배지</div><div class="cell-main">추가 진영 점수 보너스 소폭</div><div class="cell-situational">수성 미션 예고</div><div>성장 보상 차이 없음</div></div>
+        <div class="score-row"><div class="axis-label">큰 열세</div><div>추격 미션 카드 상단 노출</div><div class="cell-main">추격 응원 보너스 강화</div><div class="cell-situational">수성 미션 개방</div><div>보너스는 진영 점수에만 적용</div></div>
+        <div class="score-row"><div class="axis-label">과열</div><div>피로 완화 안내와 쉬어가기 미션</div><div class="cell-weak">보너스 강도 완화</div><div class="cell-weak">보너스 강도 완화</div><div>경쟁 보상보다 참여 보상 우선</div></div>
+        <div class="score-row"><div class="axis-label">하이라이트 주간</div><div>Day 24~30 전용 배너</div><div class="cell-main">추가 추격 배율</div><div class="cell-main">기본 획득량 상승</div><div>한정 보상은 표현/수집 중심</div></div>
+      </div>
+      <h3 style="margin-top:18px;">시즌 구간 x 점수 격차 부스팅 히트맵</h3>
+      <p class="section-note">강도는 진영 점수 획득량과 추천 미션 노출에만 적용한다. 개인 보상 단계와 성장 보상은 안정적으로 유지한다.</p>
+      <div class="heatmap">
+        <div class="heatmap-row header"><div>시즌 구간</div><div>박빙</div><div>가벼운 열세</div><div>큰 열세</div><div>우세</div><div>과열</div></div>
+        <div class="heatmap-row"><div>Day 1~3<br/>진영 선택</div><div class="heat-1">1 약함</div><div class="heat-1">1 약함</div><div class="heat-1">1 약함</div><div class="heat-1">1 약함</div><div class="heat-0">0 없음</div></div>
+        <div class="heatmap-row"><div>Day 4~14<br/>정착</div><div class="heat-1">1 약함</div><div class="heat-2">2 보통</div><div class="heat-2">2 보통</div><div class="heat-1">1 약함</div><div class="heat-1">1 약함</div></div>
+        <div class="heatmap-row"><div>Day 15~23<br/>판세 변동</div><div class="heat-2">2 보통</div><div class="heat-3">3 강함</div><div class="heat-3">3 강함</div><div class="heat-2">2 보통</div><div class="heat-1">1 약함</div></div>
+        <div class="heatmap-row"><div>Day 24~30<br/>하이라이트</div><div class="heat-3">3 강함</div><div class="heat-4">4 하이라이트</div><div class="heat-4">4 하이라이트</div><div class="heat-3">3 강함</div><div class="heat-2">2 보통</div></div>
+        <div class="heatmap-row"><div>Day 31~40<br/>정산 잠금</div><div class="heat-0">0 없음</div><div class="heat-0">0 없음</div><div class="heat-0">0 없음</div><div class="heat-0">0 없음</div><div class="heat-0">0 없음</div></div>
+      </div>
+      <p class="heatmap-note">Day 15~23부터 추격/수성 미션을 본격 노출하고, Day 24~30에는 모든 진영의 기본 획득량을 올리되 열세 진영에 추가 추격 배율을 준다. 과열 상태에서는 부스팅보다 피로 완화와 참여 보상을 우선한다.</p>
+      <div class="stage-grid" style="margin-top:14px;">
+        <div class="stage"><em>Day 1~14</em><b>기본 점수</b><span>진영 선택과 일상 참여 정착.</span></div>
+        <div class="stage"><em>Day 15~23</em><b>추격/수성 개방</b><span>박빙, 열세, 우세에 따른 행동 분기.</span></div>
+        <div class="stage"><em>Day 24~30</em><b>하이라이트 주간</b><span>기본 획득량 상승 + 열세 진영 추가 추격 배율.</span></div>
+        <div class="stage"><em>Day 31~40</em><b>정산 잠금</b><span>결과 보상 회수, 앨범 정리, 다음 시즌 예고.</span></div>
+      </div>
+      <div class="copy-board">
+        <div class="copy-line">"열세 진영에 특별 미션이 열렸어요. 아직 박빙으로 돌아갈 수 있습니다."</div>
+        <div class="copy-line">"수성 미션 진행 중. 앞서가는 진영도 오늘의 응원이 필요합니다."</div>
+        <div class="copy-line">"추격 미션은 진영 점수에만 추가 반영되며, 개인 보상 단계는 그대로 유지됩니다."</div>
+        <div class="copy-line">"하이라이트 주간 시작! 모든 진영의 점수 획득량이 증가하고, 열세 진영에는 추가 응원 보너스가 적용됩니다."</div>
+      </div>
+    </section>
+
+    <section id="timeline">
+      <div class="section-head">
+        <div class="kicker">섹션 9</div>
+        <div>
+          <h2>9. 시즌 타임라인</h2>
+          <p class="section-note">30일 오픈, 10일 정산 잠금, 다음 시즌 예고까지 하나의 운영 리듬으로 이어진다.</p>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-card"><em>Day 0</em><strong>예고</strong><span>다음 시즌 주제와 코스튬 실루엣 공개</span></div>
+        <div class="timeline-card"><em>Day 1~3</em><strong>진영 선택</strong><span>리나/루나 해석 비교, 진영 선택, 첫 미션</span></div>
+        <div class="timeline-card"><em>Day 4~14</em><strong>정착</strong><span>일일 미션, 개인 기여도, 기본 보상 회수</span></div>
+        <div class="timeline-card"><em>Day 15~23</em><strong>판세 변동</strong><span>박빙/열세/우세 상태 미션 개방</span></div>
+        <div class="timeline-card"><em>Day 24~30</em><strong>하이라이트 주간</strong><span>기본 점수 획득량 상승, 열세 진영 추가 추격 배율, 최종 대사 변화</span></div>
+        <div class="timeline-card"><em>Day 31~40</em><strong>정산 잠금</strong><span>결과 보상, 앨범 회수, 다음 시즌 예고</span></div>
+      </div>
+      <div class="mermaid-card" style="margin-top:16px;">
+        <h3>운영 타임라인 플로우</h3>
+        <pre class="mermaid">flowchart LR
+    A["Day 0<br/>예고"] --> B["Day 1~3<br/>진영 선택"]
+    B --> C["Day 4~14<br/>일상 참여 정착"]
+    C --> D["Day 15~23<br/>판세 변동"]
+    D --> E["Day 24~30<br/>하이라이트 주간"]
+    E --> F["Day 31~40<br/>정산 잠금"]
+    F --> G["다음 시즌 예고"]</pre>
+      </div>
+    </section>
+
+    <section id="rewards">
+      <div class="section-head">
+        <div class="kicker">섹션 10</div>
+        <div>
+          <h2>10. 보상 구조</h2>
+          <p class="section-note">보상은 점수만 올리는 장치가 아니라 유저가 자신의 진영 선택을 기억하게 만드는 수집 구조여야 한다.</p>
+        </div>
+      </div>
+      <div class="mermaid-card">
+        <h3>보상 구조 원본 도식</h3>
+        <pre class="mermaid">flowchart BT
+    A["즉시 보상<br/>기본 재화 / 성장 재료"] --> B["누적 참여 보상<br/>3/7/14/21/30일 보상"]
+    B --> C["진영 정체성 보상<br/>배지 / 말풍선 / 프로필 프레임"]
+    C --> D["테마 수집 보상<br/>대사 카드 / 냥멍 앨범 / 스티커"]
+    D --> E["정산 보상<br/>승리 명예 / 패배 진영 회복"]
+    E --> F["다음 시즌 연결<br/>예고 조각 / 프리뷰 티켓"]</pre>
+      </div>
+      <div class="source-card" style="margin-top:16px;">
+        <p>매일 들어오면 즉시 보상을 받고, 며칠 단위로 누적 보상을 회수하며, 시즌 후반에는 대사 카드와 한정 연출을 노리고, 정산 때는 승패와 무관하게 참여 기억을 남긴다.</p>
+      </div>
+      <div class="mermaid-card" style="margin-top:16px;">
+        <h3>보상 회수 루프</h3>
+        <pre class="mermaid">flowchart LR
+    A["오늘의 플레이"] --> B["즉시 보상 회수"]
+    B --> C["다음 누적 보상까지 남은 기여도 확인"]
+    C --> D["진영 상태 변화와 대사 카드 발견"]
+    D --> E["앨범/프로필/말풍선 수집"]
+    E --> F["하이라이트 또는 정산 보상 기대"]
+    F --> G["다음 접속"]
+    G --> A</pre>
+      </div>
+      <div class="trust-grid" style="margin-top:14px;">
+        <div class="trust"><em>승패 독식 금지</em><b>승리 진영에는 명예와 표현 보상을 주되 성장 격차는 만들지 않는다</b><span>외전의 가벼운 톤 유지.</span></div>
+        <div class="trust"><em>개인 보상 안정성</em><b>진영 점수는 흔들려도 개인 보상 단계는 안정적으로 유지한다</b><span>추격 보너스의 조작감 완화.</span></div>
+        <div class="trust"><em>진영 정체성 강화</em><b>선택이 프로필, 말풍선, 배지, 대사 카드에 남아야 한다</b><span>내가 고른 편을 표현.</span></div>
+        <div class="trust"><em>테마 수집성</em><b>보상 이름과 수집품은 고양이/강아지의 보편적 매력을 건드린다</b><span>냥멍 앨범과 스티커.</span></div>
+      </div>
+      <h3 style="margin-top:18px;">보상 카테고리 그리드</h3>
+      <p class="section-note">보상은 지금 받는 것, 계속 쌓는 것, 시즌 뒤에도 남는 것이 분리되어야 한다.</p>
+      <div class="reward-grid" style="margin-top:14px;">
+        <div class="reward-card"><em>즉시 회수</em><strong>재화 보상</strong><span>시즌 재화, 골드, 교환 토큰, 냥멍 발자국 토큰</span><span>일일/주간 퀘스트, 전투, 파밍으로 획득</span></div>
+        <div class="reward-card"><em>성장 보조</em><strong>성장 보상</strong><span>성장 재료, 강화 보조 재료, 제작 재료, 입장권</span><span>기존 게임 진행에 실질 도움</span></div>
+        <div class="reward-card"><em>진영 표현</em><strong>비주얼 보상</strong><span>프로필 프레임, 진영 배지, 이름 장식, 점수판 아이콘</span><span>내 진영 선택을 화면에 남김</span></div>
+        <div class="reward-card"><em>외형 목표</em><strong>코스튬/외형 보상</strong><span>리나/루나 테마 코스튬 조각, 액세서리, 로비 장식</span><span>시즌 테마를 계정 외형으로 표현</span></div>
+        <div class="reward-card"><em>커뮤니티</em><strong>소셜 보상</strong><span>말풍선, 채팅 이모티콘, 응원 스티커, 친구 목록 마커</span><span>다른 유저에게 진영 정체성 노출</span></div>
+        <div class="reward-card"><em>시즌 기억</em><strong>수집/앨범 보상</strong><span>대사 카드, 앨범 조각, 시즌 스티커, 이벤트 장면 카드</span><span>시즌 기억을 모으는 동기</span></div>
+        <div class="reward-card"><em>막판 복귀</em><strong>하이라이트 보상</strong><span>마지막 주 한정 프레임, 한정 스티커, 특별 대사 카드</span><span>Day 24~30 재참여</span></div>
+        <div class="reward-card"><em>결과 확인</em><strong>정산 보상</strong><span>승리 진영 칭호, 패배 진영 복수 예고 대사, 공통 앨범 보상</span><span>결과 확인과 다음 시즌 예약</span></div>
+        <div class="reward-card"><em>다음 시즌</em><strong>연결 보상</strong><span>다음 시즌 프리뷰 조각, 테마 힌트권, 예고 티켓</span><span>시즌 종료 후 재방문</span></div>
+      </div>
+      <h3 style="margin-top:18px;">보상 회수 동기 매트릭스</h3>
+      <p class="section-note">범례: 핵심은 주 동기, 보조는 함께 작동하는 동기, 약함은 직접 동기는 약하지만 분위기를 보강하는 역할이다.</p>
+      <div class="motivation-matrix">
+        <div class="motivation-row header"><div>보상 카테고리</div><div>즉시 회수</div><div>누적 목표</div><div>진영 정체성</div><div>시즌 기억</div><div>막판 복귀</div><div>다음 시즌 예약</div></div>
+        <div class="motivation-row"><div class="axis-label">재화 보상</div><div class="cell-main">핵심</div><div class="cell-sub">보조</div><div class="cell-weak">약함</div><div class="cell-weak">약함</div><div class="cell-weak">약함</div><div class="cell-weak">약함</div></div>
+        <div class="motivation-row"><div class="axis-label">성장 보상</div><div class="cell-sub">보조</div><div class="cell-main">핵심</div><div class="cell-weak">약함</div><div class="cell-weak">약함</div><div class="cell-weak">약함</div><div class="cell-weak">약함</div></div>
+        <div class="motivation-row"><div class="axis-label">비주얼 보상</div><div class="cell-sub">보조</div><div class="cell-sub">보조</div><div class="cell-main">핵심</div><div class="cell-sub">보조</div><div class="cell-sub">보조</div><div class="cell-weak">약함</div></div>
+        <div class="motivation-row"><div class="axis-label">코스튬/외형</div><div class="cell-weak">약함</div><div class="cell-main">핵심</div><div class="cell-main">핵심</div><div class="cell-sub">보조</div><div class="cell-sub">보조</div><div class="cell-weak">약함</div></div>
+        <div class="motivation-row"><div class="axis-label">소셜 보상</div><div class="cell-weak">약함</div><div class="cell-sub">보조</div><div class="cell-main">핵심</div><div class="cell-sub">보조</div><div class="cell-weak">약함</div><div class="cell-weak">약함</div></div>
+        <div class="motivation-row"><div class="axis-label">수집/앨범</div><div class="cell-weak">약함</div><div class="cell-main">핵심</div><div class="cell-sub">보조</div><div class="cell-main">핵심</div><div class="cell-sub">보조</div><div class="cell-sub">보조</div></div>
+        <div class="motivation-row"><div class="axis-label">하이라이트</div><div class="cell-weak">약함</div><div class="cell-sub">보조</div><div class="cell-sub">보조</div><div class="cell-main">핵심</div><div class="cell-main">핵심</div><div class="cell-weak">약함</div></div>
+        <div class="motivation-row"><div class="axis-label">정산/연결</div><div class="cell-weak">약함</div><div class="cell-weak">약함</div><div class="cell-main">핵심</div><div class="cell-main">핵심</div><div class="cell-sub">보조</div><div class="cell-main">핵심</div></div>
+      </div>
+      <h3 style="margin-top:18px;">보상별 행동 유도 카드</h3>
+      <div class="reward-action-grid" style="margin-top:16px;">
+        <div class="reward-action"><em>냥멍 발자국 토큰</em><b>시즌 상점 교환</b><span>일일/주간 미션 참여. 오늘 접속만 해도 손해 보지 않음.</span></div>
+        <div class="reward-action"><em>리나/루나 대사 카드</em><b>시즌 앨범과 캐릭터 로그</b><span>판세가 바뀔 때 새 대사를 기대하게 만든다.</span></div>
+        <div class="reward-action"><em>진영 말풍선</em><b>프로필과 채팅 꾸미기</b><span>내 선택을 다른 유저에게 가볍게 보여준다.</span></div>
+        <div class="reward-action"><em>산책/박스 스티커</em><b>냥멍 앨범 채우기</b><span>전투, 파밍, 제작, 기부가 앨범 완성으로 모인다.</span></div>
+        <div class="reward-action"><em>하이라이트 프레임</em><b>막판 한정 프로필 꾸미기</b><span>Day 24~30에 돌아올 이유가 생긴다.</span></div>
+        <div class="reward-action"><em>다음 시즌 예고 조각</em><b>다음 테마 프리뷰</b><span>정산일이 다음 시즌 예고로 연결된다.</span></div>
+      </div>
+    </section>
+
+    <section id="scenario">
+      <div class="section-head">
+        <div class="kicker">섹션 11</div>
+        <div>
+          <h2>11. 유저 플레이 시나리오</h2>
+          <p class="section-note">개별 기능 목록이 아니라 실제 접속부터 보상 회수까지의 순서를 병렬로 보여준다.</p>
+        </div>
+      </div>
+      <div class="scenario-table">
+        <div class="scenario-row header"><div>시나리오</div><div>유저 행동</div><div>시스템 반응</div><div>리나/루나 반응</div><div>보상/피드백</div><div>다음 행동</div></div>
+        <div class="scenario-row"><div>첫 참여</div><div>이벤트 화면에서 해석을 보고 진영을 선택한다</div><div>주제, 진영 선택, 첫 미션, 첫 보상 단계를 한 화면에 노출</div><div>각자 자기 진영의 매력을 주장하고 첫 응원 대사 출력</div><div>냥멍 발자국 토큰, 진영 배지, 첫 개인 기여도</div><div>다음 보상까지 남은 기여도 확인 후 일일 미션 진입</div></div>
+        <div class="scenario-row"><div>평일 반복</div><div>기존 일일/주간, 던전, 처치, 재화 수집을 진행한다</div><div>기존 플레이 결과를 시즌 태스크, 개인 기여도, 진영 점수에 자동 반영</div><div>완료 대사와 점수판 반응으로 행동의 영향을 보여줌</div><div>즉시 보상, 누적 보상 게이지, 대사 카드나 앨범 조각</div><div>다음 누적 보상까지 필요한 기여도를 보고 재접속</div></div>
+        <div class="scenario-row"><div>열세 진영</div><div>열세 상태와 추격 미션을 확인하고 기존 미션을 수행한다</div><div>추격 응원 보너스를 진영 점수에만 추가 반영하고 개인 보상 단계 유지</div><div>밀리는 진영을 장난스러운 대사로 격려</div><div>진영 점수 추가 배율, 열세 전용 대사, 안정적인 개인 보상</div><div>박빙 복귀 가능성을 보고 추가 미션 수행</div></div>
+        <div class="scenario-row"><div>하이라이트 복귀</div><div>Day 24~30 알림을 보고 복귀해 던전, 기부, 전용 스테이지 플레이</div><div>기본 획득량 상승, 열세 진영 추가 배율, 한정 보상 노출</div><div>마지막 내기 대사와 진영별 응원 연출 강화</div><div>하이라이트 프레임, 한정 스티커, 마지막 대사 카드</div><div>정산 전 마지막 보상 회수와 진영 점수 기여</div></div>
+        <div class="scenario-row"><div>정산일</div><div>Day 31~40에 접속해 승패 결과와 앨범 상태를 확인한다</div><div>점수판을 잠그고 결과 보상, 앨범 완성도, 예고 조각 노출</div><div>승리 명예 대사, 패배 진영 다음 시즌 복수 예고 대사</div><div>승리/패배 표현 보상, 공통 앨범 완성 보상, 다음 시즌 프리뷰</div><div>다음 시즌 주제 실루엣을 보고 재방문 기대 형성</div></div>
+      </div>
+    </section>
+
+    <section id="ui">
+      <div class="section-head">
+        <div class="kicker">섹션 12</div>
+        <div>
+          <h2>12. 내기판 UI 와이어프레임</h2>
+          <p class="section-note">원본 ASCII 와이어프레임을 보존하고, 실제 검토용 화면 블록으로 다시 풀어낸다.</p>
+        </div>
+      </div>
+      <div class="ascii-card">
+        <h3>원본 와이어프레임</h3>
+        <pre>┌──────────────────────────────────────────────┐
+│ 냥냥 vs 멍멍 대소동        남은 기간 Day 18   │
+├──────────────────────────────────────────────┤
+│ [루나: 고양이파]      점수 게이지      [리나: 강아지파] │
+│  조용한 수성 낮잠     48 : 52          역전 산책 랠리   │
+├──────────────────────────────────────────────┤
+│ 내 진영 정보          오늘의 추천 행동          상대 상태 │
+│ 개인 기여도           추격/수성 미션 카드        반응 대사 │
+├──────────────────────────────────────────────┤
+│ 일일 미션 카드 1 │ 일일 미션 카드 2 │ 보상 진행도 │ 앨범 │
+└──────────────────────────────────────────────┘</pre>
+      </div>
+      <div class="wire" style="margin-top:16px;">
+        <div class="wire-panel">
+          <strong>진영 정보</strong>
+          <div class="choice cat">루나: 고양이파<br />조용한 수성 낮잠</div>
+          <div class="choice dog">리나: 강아지파<br />역전 산책 랠리</div>
+        </div>
+        <div class="wire-panel">
+          <strong>중앙 점수 게이지</strong>
+          <div class="gauge">
+            <div class="catbar">48</div>
+            <div class="midbar">:</div>
+            <div class="dogbar">52</div>
+          </div>
+          <div class="line-list">
+            <div class="line">내 진영 정보: 개인 기여도</div>
+            <div class="line">오늘의 추천 행동: 추격/수성 미션 카드</div>
+            <div class="line">상대 상태: 반응 대사</div>
+          </div>
+        </div>
+        <div class="wire-panel">
+          <strong>하단 행동과 회수</strong>
+          <div class="line-list">
+            <div class="line">일일 미션 카드 1</div>
+            <div class="line">일일 미션 카드 2</div>
+            <div class="line">보상 진행도</div>
+            <div class="line">앨범</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="risks">
+      <div class="section-head">
+        <div class="kicker">섹션 13</div>
+        <div>
+          <h2>13. 남은 리스크와 결정</h2>
+          <p class="section-note">경쟁은 행동을 유도하지만, 외전의 가벼운 톤과 승부 신뢰를 깨면 안 된다.</p>
+        </div>
+      </div>
+      <h3 style="margin-top:18px;">리스크 우선순위 맵</h3>
+      <p class="section-note">리스크는 목록으로만 보면 우선순위가 흐려진다. 이 시즌에서는 승부 신뢰, 보상 매력, 시즌 반복 피로가 가장 먼저 봐야 할 축이다.</p>
+      <div class="risk-map">
+        <div class="axis-label">영향도 \ 가능성</div><div class="axis-label">낮음</div><div class="axis-label">중간</div><div class="axis-label">높음</div>
+        <div class="axis-label">높음</div><div class="risk-low">-</div><div class="risk-mid">시즌마다 껍데기만 바뀐 이벤트<br/>패배 진영 보상이 약해 이탈</div><div class="risk-high">추격 보너스가 조작처럼 보임</div>
+        <div class="axis-label">중간</div><div class="risk-low">쌍둥이 공통 스타일이 깨짐</div><div class="risk-mid">승패 보상이 너무 강해 외전 톤이 깨짐<br/>전용 콘텐츠가 숙제처럼 느껴짐<br/>테마 수집품 매력이 약함</div><div class="risk-low">-</div>
+        <div class="axis-label">낮음</div><div class="risk-low">-</div><div class="risk-low">-</div><div class="risk-low">-</div>
+      </div>
+      <h3 style="margin-top:18px;">리스크 대응 카드</h3>
+      <div class="risk-card-grid" style="margin-top:14px;">
+        <div class="risk-card"><em>승부 신뢰</em><strong>추격 보너스가 조작처럼 보임</strong><span>점수 차 구간과 보너스 조건을 사전 공개하고 개인 보상은 안정적으로 유지</span><span>확인 신호: 운영이 결과를 맞춘다는 반응이 없는가</span></div>
+        <div class="risk-card"><em>반복 피로</em><strong>시즌마다 껍데기만 바뀐 이벤트가 됨</strong><span>매 시즌 전용 콘텐츠 1개와 테마별 대사/수집품 차별화</span><span>확인 신호: 새 시즌인데 하는 일이 같다는 반응이 없는가</span></div>
+        <div class="risk-card"><em>열세 이탈</em><strong>패배 진영 보상이 약해 이탈</strong><span>승패 보상보다 참여/정체성/앨범 보상을 중심에 둠</span><span>확인 신호: 열세 진영의 중도 이탈이 급증하지 않는가</span></div>
+        <div class="risk-card"><em>외전 톤</em><strong>승패 보상이 너무 강해 외전 톤이 깨짐</strong><span>성장 격차 보상 금지, 명예/표현 보상 중심</span><span>확인 신호: 강제 참여 피로가 커지지 않는가</span></div>
+        <div class="risk-card"><em>숙제감</em><strong>전용 콘텐츠가 숙제처럼 느껴짐</strong><span>하루 1회 짧은 구조와 기존 전투 규칙 재사용</span><span>확인 신호: 전용 던전 참여율이 빠르게 떨어지지 않는가</span></div>
+        <div class="risk-card"><em>보상 매력</em><strong>테마 수집품 매력이 약함</strong><span>보편적 매력 행동을 보상명과 연출에 직접 연결</span><span>확인 신호: 보상명만 보고 갖고 싶다는 반응이 생기는가</span></div>
+      </div>
+      <h3 style="margin-top:18px;">결정 기준</h3>
+      <div class="source-card" style="margin-top:12px;">
+        <p>추격 보너스는 진영 점수에만 적용하고 개인 성장 보상 단계는 흔들지 않는다. 전용 콘텐츠는 매 시즌 테마별 변화를 목표로 하되, 기본은 기존 몬스터 바리에이션과 기존 던전 재스킨으로 잡는다. 승리 보상은 명예와 표현 중심, 패배 진영 보상은 회복과 다음 시즌 예고 중심으로 둔다.</p>
+      </div>
+      <p class="footer-note">14. 다음 작업은 공유본 본문이 아니라 별도 작업 현황 문서에서 관리한다. 이 문서는 기획 공유용 HTML이며, 이미지와 도식은 검토용 자료다.</p>
+    </section>
+  </main>
+  <script type="module">
+    import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+    mermaid.initialize({ startOnLoad: true, theme: "base", securityLevel: "loose" });
+  </script>
+</body>
+</html>

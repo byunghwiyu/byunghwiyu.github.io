@@ -2,6 +2,17 @@
   "$schema": "schema: { posts: [{ id, date(YYYY-MM-DD), tag, titleKo, titleEn, summary, kind: 'external'|'local', url?, thumbnail? }] }",
   "posts": [
     {
+      "id": "twin-pet-season",
+      "date": "2026-06-03",
+      "tag": "ContentDesign",
+      "titleKo": "리나 vs 루나 테마 배틀 — 냥냥 vs 멍멍 대소동",
+      "titleEn": "Rina vs Luna Theme Battle — Cats vs Dogs Season",
+      "summary": "양 진영 동물 테마 시즌 콘텐츠 기획 패키지 (game-content-planning 스킬 산출물).",
+      "kind": "external",
+      "url": "https://byunghwiyu.github.io/posts/twin-pet-season/",
+      "thumbnail": "posts/twin-pet-season/assets/generated/whiteboard-summary.png"
+    },
+    {
       "id": "post-011",
       "date": "2026-05-25",
       "tag": "Postmortem",
