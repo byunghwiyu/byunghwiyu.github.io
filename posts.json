@@ -1,16 +1,17 @@
 {
   "$schema": "schema: { posts: [{ id, date(YYYY-MM-DD), tag, titleKo, titleEn, summary, kind: 'external'|'local', url?, thumbnail? }] }",
   "posts": [
+
     {
-      "id": "post-012",
-      "date": "2026-06-02",
+      "id": "projecth-postmortem-slides",
+      "date": "2026-06-19",
       "tag": "Postmortem",
-      "titleKo": "12번째 느좋 코딩 포스트모텀(바이브 코딩)",
-      "titleEn": "Vibe Coding Postmortem #12",
-      "summary": "",
+      "titleKo": "느좋 코딩 포스트모텀",
+      "titleEn": "Vibe Coding Postmortem Slides",
+      "summary": "Project H 개발 과정을 정리한 발표 슬라이드 뷰어.",
       "kind": "external",
-      "url": "https://www.linkedin.com/posts/byunghwi_qrysumqzcuqn-gamedesign-rpwstwrzgtgkrht-ugcPost-7467726043941031938-IFgf/?utm_source=share&utm_medium=member_desktop&rcm=ACoAABLaWHABANuHavx5S3CtyOnAwv6f5NIw8LM",
-      "thumbnail": "assets/thumbs/post-012.jpg"
+      "url": "https://byunghwiyu.github.io/ProjectH_Postmoterm/viewer.html",
+      "thumbnail": ""
     },
     {
       "id": "twin-pet-season",
@@ -22,6 +23,17 @@
       "kind": "external",
       "url": "https://byunghwiyu.github.io/posts/twin-pet-season/",
       "thumbnail": "posts/twin-pet-season/assets/generated/whiteboard-summary.png"
+    },
+    {
+      "id": "post-012",
+      "date": "2026-06-02",
+      "tag": "Postmortem",
+      "titleKo": "12번째 느좋 코딩 포스트모텀(바이브 코딩)",
+      "titleEn": "Vibe Coding Postmortem #12",
+      "summary": "",
+      "kind": "external",
+      "url": "https://www.linkedin.com/posts/byunghwi_qrysumqzcuqn-gamedesign-rpwstwrzgtgkrht-ugcPost-7467726043941031938-IFgf/?utm_source=share&utm_medium=member_desktop&rcm=ACoAABLaWHABANuHavx5S3CtyOnAwv6f5NIw8LM",
+      "thumbnail": "assets/thumbs/post-012.jpg"
     },
     {
       "id": "post-011",
