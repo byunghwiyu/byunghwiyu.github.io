@@ -1,7 +1,17 @@
 {
   "$schema": "schema: { posts: [{ id, date(YYYY-MM-DD), tag, titleKo, titleEn, summary, kind: 'external'|'local', url?, thumbnail? }] }",
   "posts": [
-
+    {
+      "id": "post-014",
+      "date": "2026-08-02",
+      "tag": "GameDesign",
+      "titleKo": "WoW 클래스 전투디자인 뜯어보기",
+      "titleEn": "WoW Class Combat Design Breakdown",
+      "summary": "13개 기본 클래스 만렙, 40개 전문화를 플레이하며 정리한 클래스 전투디자인 노트.",
+      "kind": "external",
+      "url": "https://www.linkedin.com/posts/byunghwi_wow-qrysumrhysuysua-gamedesign-ugcPost-7489719502063194112-8h5j/?utm_source=share&utm_medium=member_desktop&rcm=ACoAABLaWHABANuHavx5S3CtyOnAwv6f5NIw8LM",
+      "thumbnail": "assets/thumbs/post-014.jpg"
+    },
     {
       "id": "post-013",
       "date": "2026-06-21",
